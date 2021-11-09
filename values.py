@@ -51,6 +51,12 @@ sleep_time = {}
 for f in file:
     sleep_time[f] = {}
 
+# Eat time dict
+
+eat_time = {}
+for f in file:
+    eat_time[f] = {}
+
 # initial calculation
 outing_density = {}
 
@@ -114,6 +120,27 @@ while k < len(file):
                     "end": f"{day_sleep_end.hour}:{day_sleep_end.minute:0>2}",
                 }
 
+        # Record eat time
+        if line[4] == "조식":
+            date_eat = datetime.strptime(line[1][1:], "%Y-%m-%d %H:%M:%S")
+            eat_time[file[k]][date_eat.day] = {}
+            eat_time[file[k]][date_eat.day][
+                "breakfast"
+            ] = f"{date_eat.hour}:{date_eat.minute:0>2}"
+        elif line[4] == "중식":
+            date_eat = datetime.strptime(line[1][1:], "%Y-%m-%d %H:%M:%S")
+            if date_eat.day not in eat_time[file[k]].keys():
+                eat_time[file[k]][date_eat.day] = {}
+            eat_time[file[k]][date_eat.day][
+                "lunch"
+            ] = f"{date_eat.hour}:{date_eat.minute:0>2}"
+        elif line[4] == "중식":
+            date_eat = datetime.strptime(line[1][1:], "%Y-%m-%d %H:%M:%S")
+            if date_eat.day not in eat_time[file[k]].keys():
+                eat_time[file[k]][date_eat.day] = {}
+            eat_time[file[k]][date_eat.day][
+                "dinner"
+            ] = f"{date_eat.hour}:{date_eat.minute:0>2}"
         if line[2] == "외출":  # calculation outing density
             local_outing += 1
 
@@ -283,6 +310,7 @@ while k < len(file):
 
 user_data = {
     "sleep_time": sleep_time,
+    "eat_time": eat_time,
     "outing_density": outing_density,
     "activation_score": activition_score,
     "place_toilet": place_toilet,
