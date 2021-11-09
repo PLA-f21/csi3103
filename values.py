@@ -57,9 +57,8 @@ recent_sooni_talk = {}
 
 # eating pill days are not overlapped
 # plus, if want to display the time, we should ""recent 3 days""!!
-pill_time = (
-    {}
-)  # display the unbalance time. if this is empty, not eating pill or eating well
+pill_time = {}
+# display the unbalance time. if this is empty, not eating pill or eating well
 
 
 # In[7]:
