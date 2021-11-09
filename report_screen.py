@@ -14,7 +14,7 @@ import openpyxl
 import datetime
 import calendar
 
-report_class = uic.loadUiType('report_screen.ui')[0]
+report_class = uic.loadUiType("report_screen.ui")[0]
 
 
 class report_screen(QtWidgets.QDialog, report_class):
@@ -62,7 +62,6 @@ class report_screen(QtWidgets.QDialog, report_class):
         self.widget1.hide()
         self.widget2.show()
         self.widget3.hide()
-
 
     def btn3_click(self):  #  사용자의 감정 유추
         self.indicator1.hide()
@@ -112,7 +111,7 @@ class report_screen(QtWidgets.QDialog, report_class):
         self.cur_month -= 1
         if self.cur_month == 0:
             self.cur_month = 12
-            self.cur_year -=1
+            self.cur_year -= 1
         self.set_calendar()
 
     def increase_calendar_release(self):
@@ -122,10 +121,10 @@ class report_screen(QtWidgets.QDialog, report_class):
         self.month_decrease.setCursor(QtCore.Qt.OpenHandCursor)
 
     def get_info(self, id_in):
-        wb = openpyxl.load_workbook(filename='./data/user_profile.xlsx')
-        self.ID_num = wb['user_profile']['A' + str(id_in)].value
-        self.is_male = wb['user_profile']['B' + str(id_in)].value == 'M'
-        self.age_num = wb['user_profile']['C' + str(id_in)].value
+        wb = openpyxl.load_workbook(filename="./data/user_profile.xlsx")
+        self.ID_num = wb["user_profile"]["A" + str(id_in)].value
+        self.is_male = wb["user_profile"]["B" + str(id_in)].value == "M"
+        self.age_num = wb["user_profile"]["C" + str(id_in)].value
         self.ID.setText("ID : " + str(self.ID_num))
         if self.is_male:
             self.sex.setText("성별 : 남성")
@@ -135,14 +134,18 @@ class report_screen(QtWidgets.QDialog, report_class):
 
     def set_calendar(self):
         self.month.setText(str(self.cur_year) + "년 " + str(self.cur_month) + "월")
-        self.calendar_list = calendar.Calendar(firstweekday=6).monthdatescalendar(self.cur_year, self.cur_month)
+        self.calendar_list = calendar.Calendar(firstweekday=6).monthdatescalendar(
+            self.cur_year, self.cur_month
+        )
         self.button_calendar_1.setText(self.week_list_to_text(self.calendar_list[0]))
         self.button_calendar_2.setText(self.week_list_to_text(self.calendar_list[1]))
         self.button_calendar_3.setText(self.week_list_to_text(self.calendar_list[2]))
         self.button_calendar_4.setText(self.week_list_to_text(self.calendar_list[3]))
         if len(self.calendar_list) > 4:
             self.button_calendar_5.show()
-            self.button_calendar_5.setText(self.week_list_to_text(self.calendar_list[4]))
+            self.button_calendar_5.setText(
+                self.week_list_to_text(self.calendar_list[4])
+            )
         else:
             self.button_calendar_5.hide()
 
@@ -152,21 +155,22 @@ class report_screen(QtWidgets.QDialog, report_class):
             if day.month != self.cur_month:
                 out += "    "
             else:
-                out += '{0: >2d}  '.format(day.day)
+                out += "{0: >2d}  ".format(day.day)
         return out
 
     def choose_week(self, index):
-        #self.calendar_list[index]
+        # self.calendar_list[index]
         pass
 
     def set_time(self):
         cur_time = datetime.datetime.now()
-        cur_date = cur_time.strftime('%Y년 %m월 %d일')
-        cur_hour = ("오전" if (cur_time.hour < 12) else "오후") + cur_time.strftime(' %I시 %M분')
+        cur_date = cur_time.strftime("%Y년 %m월 %d일")
+        cur_hour = ("오전" if (cur_time.hour < 12) else "오후") + cur_time.strftime(
+            " %I시 %M분"
+        )
         self.date.setText(cur_date)
         self.time.setText(cur_hour)
         self.timer.start((60 - cur_time.second) * 1000)
-
 
 
 import resources_rc
@@ -174,6 +178,7 @@ import resources_rc
 
 if __name__ == "__main__":
     import sys
+
     app = QtWidgets.QApplication(sys.argv)
     Dialog = QtWidgets.QDialog()
     ui = report_screen()

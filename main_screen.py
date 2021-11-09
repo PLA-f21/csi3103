@@ -28,12 +28,14 @@ class Ui_MainWindow(object):
         self.pushButton.setCursor(QtGui.QCursor(QtCore.Qt.OpenHandCursor))
         self.pushButton.setMouseTracking(True)
         self.pushButton.setAutoFillBackground(False)
-        self.pushButton.setStyleSheet("QPushButton{\n"
-"    border-image: url(:/main_screen/main_button.png);\n"
-"}\n"
-"QPushButton::hover{\n"
-"    border-image: url(:/main_screen/main_button_hover.png);\n"
-"}")
+        self.pushButton.setStyleSheet(
+            "QPushButton{\n"
+            "    border-image: url(:/main_screen/main_button.png);\n"
+            "}\n"
+            "QPushButton::hover{\n"
+            "    border-image: url(:/main_screen/main_button_hover.png);\n"
+            "}"
+        )
         self.pushButton.setText("")
         self.pushButton.setIconSize(QtCore.QSize(254, 60))
         self.pushButton.setCheckable(False)
@@ -65,8 +67,10 @@ class Ui_MainWindow(object):
         font.setWeight(50)
         font.setStyleStrategy(QtGui.QFont.PreferDefault)
         self.lineEdit.setFont(font)
-        self.lineEdit.setStyleSheet("border-image: url(:/main_screen/main_text_in.png);\n"
-"color: rgb(0, 0, 0);")
+        self.lineEdit.setStyleSheet(
+            "border-image: url(:/main_screen/main_text_in.png);\n"
+            "color: rgb(0, 0, 0);"
+        )
         self.lineEdit.setText("")
         self.lineEdit.setAlignment(QtCore.Qt.AlignCenter)
         self.lineEdit.setObjectName("lineEdit")
@@ -99,14 +103,23 @@ class Ui_MainWindow(object):
                 self.report_screen_dialog.exec()
                 self.MainWin.show()
             else:
-                reply = QtWidgets.QMessageBox.warning(QtWidgets.QMessageBox(), "ID Error", "ID가 잘못되었습니다!", QtWidgets.QMessageBox.Ok)
+                reply = QtWidgets.QMessageBox.warning(
+                    QtWidgets.QMessageBox(),
+                    "ID Error",
+                    "ID가 잘못되었습니다!",
+                    QtWidgets.QMessageBox.Ok,
+                )
         else:
-            reply = QtWidgets.QMessageBox.warning(QtWidgets.QMessageBox(), "ID Error", "ID가 잘못되었습니다!", QtWidgets.QMessageBox.Ok)
-
+            reply = QtWidgets.QMessageBox.warning(
+                QtWidgets.QMessageBox(),
+                "ID Error",
+                "ID가 잘못되었습니다!",
+                QtWidgets.QMessageBox.Ok,
+            )
 
     def check_id_valid(self, ID):
-        wb = openpyxl.load_workbook(filename='./data/user_profile.xlsx')
-        col = wb['user_profile']['A'][1:]
+        wb = openpyxl.load_workbook(filename="./data/user_profile.xlsx")
+        col = wb["user_profile"]["A"][1:]
 
         for i in range(len(col)):
             if ID == col[i].value:
@@ -124,6 +137,7 @@ import resources_rc
 
 if __name__ == "__main__":
     import sys
+
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
     ui = Ui_MainWindow()

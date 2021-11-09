@@ -38,42 +38,58 @@ class Ui_btn1_widget(QtWidgets.QWidget):
         self.box4.setObjectName("box4")
         self.line1 = QtWidgets.QLabel(btn1_widget)
         self.line1.setGeometry(QtCore.QRect(35, 190, 400, 5))
-        self.line1.setStyleSheet("border-image: url(:/report_screen/report_devider.png);")
+        self.line1.setStyleSheet(
+            "border-image: url(:/report_screen/report_devider.png);"
+        )
         self.line1.setText("")
         self.line1.setObjectName("line1")
         self.line2 = QtWidgets.QLabel(btn1_widget)
         self.line2.setGeometry(QtCore.QRect(515, 190, 400, 5))
-        self.line2.setStyleSheet("border-image: url(:/report_screen/report_devider.png);")
+        self.line2.setStyleSheet(
+            "border-image: url(:/report_screen/report_devider.png);"
+        )
         self.line2.setText("")
         self.line2.setObjectName("line2")
         self.text_meatl = QtWidgets.QLabel(btn1_widget)
         self.text_meatl.setGeometry(QtCore.QRect(30, 310, 271, 47))
-        self.text_meatl.setStyleSheet("border-image: url(:/report_screen/report_meal.png);")
+        self.text_meatl.setStyleSheet(
+            "border-image: url(:/report_screen/report_meal.png);"
+        )
         self.text_meatl.setText("")
         self.text_meatl.setObjectName("text_meatl")
         self.icon_meal = QtWidgets.QLabel(btn1_widget)
         self.icon_meal.setGeometry(QtCore.QRect(35, 310, 40, 40))
-        self.icon_meal.setStyleSheet("border-image: url(:/report_screen/report_pk.png);")
+        self.icon_meal.setStyleSheet(
+            "border-image: url(:/report_screen/report_pk.png);"
+        )
         self.icon_meal.setText("")
         self.icon_meal.setObjectName("icon_meal")
         self.icon_sleep = QtWidgets.QLabel(btn1_widget)
         self.icon_sleep.setGeometry(QtCore.QRect(35, 10, 40, 40))
-        self.icon_sleep.setStyleSheet("border-image: url(:/report_screen/report_moon.png);")
+        self.icon_sleep.setStyleSheet(
+            "border-image: url(:/report_screen/report_moon.png);"
+        )
         self.icon_sleep.setText("")
         self.icon_sleep.setObjectName("icon_sleep")
         self.text_sleep = QtWidgets.QLabel(btn1_widget)
         self.text_sleep.setGeometry(QtCore.QRect(80, 10, 121, 47))
-        self.text_sleep.setStyleSheet("border-image: url(:/report_screen/report_sleep.png);")
+        self.text_sleep.setStyleSheet(
+            "border-image: url(:/report_screen/report_sleep.png);"
+        )
         self.text_sleep.setText("")
         self.text_sleep.setObjectName("text_sleep")
         self.text_sleep_2 = QtWidgets.QLabel(btn1_widget)
         self.text_sleep_2.setGeometry(QtCore.QRect(550, 10, 121, 47))
-        self.text_sleep_2.setStyleSheet("border-image: url(:/report_screen/report_activepng.png)")
+        self.text_sleep_2.setStyleSheet(
+            "border-image: url(:/report_screen/report_activepng.png)"
+        )
         self.text_sleep_2.setText("")
         self.text_sleep_2.setObjectName("text_sleep_2")
         self.icon_routine = QtWidgets.QLabel(btn1_widget)
         self.icon_routine.setGeometry(QtCore.QRect(505, 10, 40, 40))
-        self.icon_routine.setStyleSheet("border-image: url(:/report_screen/report_time.png);")
+        self.icon_routine.setStyleSheet(
+            "border-image: url(:/report_screen/report_time.png);"
+        )
         self.icon_routine.setText("")
         self.icon_routine.setObjectName("icon_routine")
         self.label = QtWidgets.QLabel(btn1_widget)
@@ -83,56 +99,90 @@ class Ui_btn1_widget(QtWidgets.QWidget):
         self.label.setObjectName("label")
         self.text_browser_sleep = QtWidgets.QTextBrowser(btn1_widget)
         self.text_browser_sleep.setGeometry(QtCore.QRect(30, 200, 411, 81))
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.text_browser_sleep.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.text_browser_sleep.sizePolicy().hasHeightForWidth()
+        )
         self.text_browser_sleep.setSizePolicy(sizePolicy)
-        self.text_browser_sleep.setStyleSheet("background-color: rgba(255, 255, 255, 0);\n"
-"border: None;\n"
-"font: 12pt \"마루 부리 Beta\";")
+        self.text_browser_sleep.setStyleSheet(
+            "background-color: rgba(255, 255, 255, 0);\n"
+            "border: None;\n"
+            'font: 12pt "마루 부리 Beta";'
+        )
         self.text_browser_sleep.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
-        self.text_browser_sleep.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
+        self.text_browser_sleep.setHorizontalScrollBarPolicy(
+            QtCore.Qt.ScrollBarAlwaysOff
+        )
         self.text_browser_sleep.setObjectName("text_browser_sleep")
         self.text_browser_active = QtWidgets.QTextBrowser(btn1_widget)
         self.text_browser_active.setGeometry(QtCore.QRect(510, 200, 411, 81))
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.text_browser_active.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.text_browser_active.sizePolicy().hasHeightForWidth()
+        )
         self.text_browser_active.setSizePolicy(sizePolicy)
-        self.text_browser_active.setStyleSheet("background-color: rgba(255, 255, 255, 0);\n"
-"border: None;\n"
-"font: 12pt \"마루 부리 Beta\";")
-        self.text_browser_active.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
-        self.text_browser_active.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
+        self.text_browser_active.setStyleSheet(
+            "background-color: rgba(255, 255, 255, 0);\n"
+            "border: None;\n"
+            'font: 12pt "마루 부리 Beta";'
+        )
+        self.text_browser_active.setVerticalScrollBarPolicy(
+            QtCore.Qt.ScrollBarAlwaysOff
+        )
+        self.text_browser_active.setHorizontalScrollBarPolicy(
+            QtCore.Qt.ScrollBarAlwaysOff
+        )
         self.text_browser_active.setObjectName("text_browser_active")
         self.text_browser_total = QtWidgets.QTextBrowser(btn1_widget)
         self.text_browser_total.setGeometry(QtCore.QRect(510, 420, 411, 151))
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.text_browser_total.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.text_browser_total.sizePolicy().hasHeightForWidth()
+        )
         self.text_browser_total.setSizePolicy(sizePolicy)
-        self.text_browser_total.setStyleSheet("background-color: rgba(255, 255, 255, 0);\n"
-"border: None;\n"
-"font: 12pt \"마루 부리 Beta\";")
+        self.text_browser_total.setStyleSheet(
+            "background-color: rgba(255, 255, 255, 0);\n"
+            "border: None;\n"
+            'font: 12pt "마루 부리 Beta";'
+        )
         self.text_browser_total.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
-        self.text_browser_total.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
+        self.text_browser_total.setHorizontalScrollBarPolicy(
+            QtCore.Qt.ScrollBarAlwaysOff
+        )
         self.text_browser_total.setObjectName("text_browser_total")
         self.text_browser_score = QtWidgets.QTextBrowser(btn1_widget)
         self.text_browser_score.setGeometry(QtCore.QRect(610, 370, 81, 41))
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.text_browser_score.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.text_browser_score.sizePolicy().hasHeightForWidth()
+        )
         self.text_browser_score.setSizePolicy(sizePolicy)
-        self.text_browser_score.setStyleSheet("background-color: rgba(255, 255, 255, 0);\n"
-"border: None;\n"
-"font: 17pt \"마루 부리 Beta\";\n"
-"color: rgb(10, 204, 236);")
+        self.text_browser_score.setStyleSheet(
+            "background-color: rgba(255, 255, 255, 0);\n"
+            "border: None;\n"
+            'font: 17pt "마루 부리 Beta";\n'
+            "color: rgb(10, 204, 236);"
+        )
         self.text_browser_score.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
-        self.text_browser_score.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
+        self.text_browser_score.setHorizontalScrollBarPolicy(
+            QtCore.Qt.ScrollBarAlwaysOff
+        )
         self.text_browser_score.setObjectName("text_browser_score")
         self.box1.raise_()
         self.box2.raise_()
@@ -158,31 +208,54 @@ class Ui_btn1_widget(QtWidgets.QWidget):
     def retranslateUi(self, btn1_widget):
         _translate = QtCore.QCoreApplication.translate
         btn1_widget.setWindowTitle(_translate("btn1_widget", "Form"))
-        self.text_browser_sleep.setHtml(_translate("btn1_widget", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:\'마루 부리 Beta\'; font-size:12pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>"))
-        self.text_browser_active.setHtml(_translate("btn1_widget", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:\'마루 부리 Beta\'; font-size:12pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>"))
-        self.text_browser_total.setHtml(_translate("btn1_widget", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:\'마루 부리 Beta\'; font-size:12pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>"))
-        self.text_browser_score.setHtml(_translate("btn1_widget", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:\'마루 부리 Beta\'; font-size:17pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>"))
+        self.text_browser_sleep.setHtml(
+            _translate(
+                "btn1_widget",
+                '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd">\n'
+                '<html><head><meta name="qrichtext" content="1" /><style type="text/css">\n'
+                "p, li { white-space: pre-wrap; }\n"
+                "</style></head><body style=\" font-family:'마루 부리 Beta'; font-size:12pt; font-weight:400; font-style:normal;\">\n"
+                '<p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><br /></p></body></html>',
+            )
+        )
+        self.text_browser_active.setHtml(
+            _translate(
+                "btn1_widget",
+                '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd">\n'
+                '<html><head><meta name="qrichtext" content="1" /><style type="text/css">\n'
+                "p, li { white-space: pre-wrap; }\n"
+                "</style></head><body style=\" font-family:'마루 부리 Beta'; font-size:12pt; font-weight:400; font-style:normal;\">\n"
+                '<p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><br /></p></body></html>',
+            )
+        )
+        self.text_browser_total.setHtml(
+            _translate(
+                "btn1_widget",
+                '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd">\n'
+                '<html><head><meta name="qrichtext" content="1" /><style type="text/css">\n'
+                "p, li { white-space: pre-wrap; }\n"
+                "</style></head><body style=\" font-family:'마루 부리 Beta'; font-size:12pt; font-weight:400; font-style:normal;\">\n"
+                '<p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><br /></p></body></html>',
+            )
+        )
+        self.text_browser_score.setHtml(
+            _translate(
+                "btn1_widget",
+                '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd">\n'
+                '<html><head><meta name="qrichtext" content="1" /><style type="text/css">\n'
+                "p, li { white-space: pre-wrap; }\n"
+                "</style></head><body style=\" font-family:'마루 부리 Beta'; font-size:17pt; font-weight:400; font-style:normal;\">\n"
+                '<p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><br /></p></body></html>',
+            )
+        )
+
+
 import resources_rc
 
 
 if __name__ == "__main__":
     import sys
+
     app = QtWidgets.QApplication(sys.argv)
     btn1_widget = QtWidgets.QWidget()
     ui = Ui_btn1_widget()
