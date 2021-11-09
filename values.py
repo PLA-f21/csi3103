@@ -1,12 +1,24 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
+# In[5]:
 
 
 import csv
+import openpyxl as xl
 
-file = ['513','534','720','530'] # (IMPOLTANT!!!! HARD CODING!!! we should add in this array for file number.. sad)
+wb = xl.load_workbook("user_profile.xlsx")
+col = wb["user_profile"]["A"][1:]
+file = []
+
+for i in range(len(col)):
+    file.append(str(col[i].value))
+
+
+# In[6]:
+
+
+##file = ['513','534','720','530'] # (IMPOLTANT!!!! HARD CODING!!! we should add in this array for file number.. sad)
 # file '530' is empty
 
 k = 0 # for file index
@@ -29,7 +41,7 @@ recent_sooni_talk = {}
 pill_time = {} # display the unbalance time. if this is empty, not eating pill or eating well
 
 
-# In[2]:
+# In[7]:
 
 
 while k < len(file):
@@ -50,7 +62,10 @@ while k < len(file):
     local_pill_unbalance = ""
     local_pill_flag = False
     
-    f = open('hs_'+file[k]+'_m08_0903_1355.csv','r')
+    if int(file[k]) < 30064:
+        f = open('hs_'+file[k]+'_m08_0903_1355.csv','r')
+    else:
+        f = open('hs_'+file[k]+'_m08_0903_1356.csv','r')
     
     rdr = csv.reader(f)
     
@@ -163,49 +178,49 @@ while k < len(file):
     k+=1
 
 
-# In[3]:
+# In[8]:
 
 
 outing_density
 
 
-# In[4]:
+# In[9]:
 
 
 activition_score
 
 
-# In[5]:
+# In[10]:
 
 
 place_toilet
 
 
-# In[6]:
+# In[11]:
 
 
 place_kitchen
 
 
-# In[7]:
+# In[12]:
 
 
 place_living
 
 
-# In[8]:
+# In[13]:
 
 
 total_people_num
 
 
-# In[9]:
+# In[14]:
 
 
 recent_sooni_talk
 
 
-# In[10]:
+# In[15]:
 
 
 pill_time
@@ -214,5 +229,9 @@ pill_time
 # In[ ]:
 
 
+
+
+
+# In[ ]:
 
 
