@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[5]:
+# In[1]:
 
 
 import csv
@@ -10,17 +10,35 @@ import openpyxl as xl
 
 wb = xl.load_workbook("data/user_profile.xlsx")
 col = wb["user_profile"]["A"][1:]
+col2 = wb["user_profile"]["B"][1:]
+col3 = wb["user_profile"]["C"][1:]
+
 file = []
+sex = {}
+age = {}
 
 for i in range(len(col)):
     file.append(str(col[i].value))
+for i in range(len(col2)):
+    sex[file[i]] = str(col2[i].value)
+for i in range(len(col3)):
+    age[file[i]] = str(col3[i].value)
 
+# In[2]:
+
+#file
+
+# In[3]:
+
+#sex
+
+# In[4]:
+
+#age
 
 # In[6]:
 
-
-##file = ['513','534','720','530'] # (IMPOLTANT!!!! HARD CODING!!! we should add in this array for file number.. sad)
-# file '530' is empty
+# ex) file '530' is empty
 
 k = 0  # for file index
 total_people_num = len(file)
@@ -251,6 +269,8 @@ user_data = {
     "total_people_num": total_people_num,
     "recent_sooni_talk": recent_sooni_talk,
     "pill_time": pill_time,
+    "sex": sex,
+    "age": age
 }
 
 with open("data/user_data.json", "w") as f:
