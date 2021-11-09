@@ -46,13 +46,13 @@ k = 0  # for file index
 total_people_num = len(file)
 
 # Sleep time dict
-# sleep_time[id][day]["start"] or sleep_time[id][day]["end"]
+# user_data["sleep_time"][id][day]["start"] or sleep_time[id][day]["end"]
 sleep_time = {}
 for f in file:
     sleep_time[f] = {}
 
 # Eat time dict
-# eat_time[id][day]["breakfast"] or ["lunch"] or ["dinner"]
+# user_data["eat_time"][id][day]["breakfast"] or ["lunch"] or ["dinner"]
 eat_time = {}
 for f in file:
     eat_time[f] = {}
@@ -222,6 +222,9 @@ while k < len(file):
         )  # store outing density
     except ZeroDivisionError:
         outing_density[file[k]] = 0.000
+    outing_density["average"] = sum(map(float, outing_density.values())) / len(
+        outing_density
+    )
 
     try:
         activition_score[file[k]] = format(
@@ -229,21 +232,29 @@ while k < len(file):
         )
     except ZeroDivisionError:
         activition_score[file[k]] = 0.00000
+    activition_score["average"] = sum(map(float, activition_score.values())) / len(
+        activition_score
+    )
 
     try:
         place_toilet[file[k]] = format((local_place_toilet / local_totalplace), ".3f")
     except ZeroDivisionError:
         place_toilet[file[k]] = 0.000
+    place_toilet["average"] = sum(map(float, place_toilet.values())) / len(place_toilet)
 
     try:
         place_kitchen[file[k]] = format((local_place_kitchen / local_totalplace), ".3f")
     except ZeroDivisionError:
         place_kitchen[file[k]] = 0.000
+    place_kitchen["average"] = sum(map(float, place_kitchen.values())) / len(
+        place_kitchen
+    )
 
     try:
         place_living[file[k]] = format((local_place_living / local_totalplace), ".3f")
     except ZeroDivisionError:
         place_living[file[k]] = 0.000
+    place_living["average"] = sum(map(float, place_living.values())) / len(place_living)
 
     if local_pill_unbalance != "":
         pill_time[file[k]] = local_pill_unbalance
