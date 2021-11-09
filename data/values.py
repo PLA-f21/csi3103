@@ -181,59 +181,47 @@ while k < len(file):
 # In[8]:
 
 
-outing_density
+#outing_density
 
 
 # In[9]:
 
 
-activition_score
+#activition_score
 
 
 # In[10]:
 
 
-place_toilet
+#place_toilet
 
 
 # In[11]:
 
 
-place_kitchen
+#place_kitchen
 
 
 # In[12]:
 
 
-place_living
+#place_living
 
 
 # In[13]:
 
 
-total_people_num
+#total_people_num
 
 
 # In[14]:
 
 
-recent_sooni_talk
+#recent_sooni_talk
 
 
 # In[15]:
 
 
-pill_time
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
+#pill_time
 
