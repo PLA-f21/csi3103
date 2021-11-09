@@ -8,7 +8,7 @@ import csv
 import json
 import openpyxl as xl
 
-wb = xl.load_workbook("user_profile.xlsx")
+wb = xl.load_workbook("data/user_profile.xlsx")
 col = wb["user_profile"]["A"][1:]
 file = []
 
