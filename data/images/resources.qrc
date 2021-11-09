@@ -1,0 +1,57 @@
+<RCC>
+  <qresource prefix="main_screen">
+    <file>main_button.png</file>
+    <file>report_table.png</file>
+    <file>main_button_hover.png</file>
+    <file>main_screen.png</file>
+    <file>main_text.png</file>
+    <file>main_text_in.png</file>
+  </qresource>
+  <qresource prefix="report_screen">
+    <file>report_table.png</file>
+    <file>report_calendar_decrease.png</file>
+    <file>report_calendar_decrease_hover.png</file>
+    <file>report_calendar_increase.png</file>
+    <file>report_calendar_increase_hover.png</file>
+    <file>report_activepng.png</file>
+    <file>report_box.png</file>
+    <file>report_btn1.png</file>
+    <file>report_btn1_hover.png</file>
+    <file>report_btn2.png</file>
+    <file>report_btn2_hover.png</file>
+    <file>report_btn3.png</file>
+    <file>report_btn3_hover.png</file>
+    <file>report_devider.png</file>
+    <file>report_indicator.png</file>
+    <file>report_meal.png</file>
+    <file>report_moon.png</file>
+    <file>report_pk.png</file>
+    <file>report_score.png</file>
+    <file>report_screen_bg.png</file>
+    <file>report_select.png</file>
+    <file>report_sleep.png</file>
+    <file>report_time.png</file>
+  </qresource>
+  <qresource prefix="weather">
+    <file>weather/NB01.png</file>
+    <file>weather/NB01_N.png</file>
+    <file>weather/NB02.png</file>
+    <file>weather/NB02_N.png</file>
+    <file>weather/NB03.png</file>
+    <file>weather/NB03_N.png</file>
+    <file>weather/NB04.png</file>
+    <file>weather/NB07.png</file>
+    <file>weather/NB08.png</file>
+    <file>weather/NB11.png</file>
+    <file>weather/NB12.png</file>
+    <file>weather/NB13.png</file>
+    <file>weather/NB15.png</file>
+    <file>weather/NB16.png</file>
+    <file>weather/NB17.png</file>
+    <file>weather/NB18.png</file>
+    <file>weather/NB20.png</file>
+    <file>weather/NB21.png</file>
+    <file>weather/NB22.png</file>
+    <file>weather/NB23.png</file>
+  </qresource>
+</RCC>
