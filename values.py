@@ -52,10 +52,12 @@ for f in file:
     sleep_time[f] = {}
 
 # Eat time dict
-
+# eat_time[id][day]["breakfast"] or ["lunch"] or ["dinner"]
 eat_time = {}
 for f in file:
     eat_time[f] = {}
+    for d in range(1, 32):
+        eat_time[f][d] = {"breakfast": "-", "lunch": "-", "dinner": "-"}
 
 # initial calculation
 outing_density = {}
@@ -123,21 +125,16 @@ while k < len(file):
         # Record eat time
         if line[4] == "조식":
             date_eat = datetime.strptime(line[1][1:], "%Y-%m-%d %H:%M:%S")
-            eat_time[file[k]][date_eat.day] = {}
             eat_time[file[k]][date_eat.day][
                 "breakfast"
             ] = f"{date_eat.hour}:{date_eat.minute:0>2}"
         elif line[4] == "중식":
             date_eat = datetime.strptime(line[1][1:], "%Y-%m-%d %H:%M:%S")
-            if date_eat.day not in eat_time[file[k]].keys():
-                eat_time[file[k]][date_eat.day] = {}
             eat_time[file[k]][date_eat.day][
                 "lunch"
             ] = f"{date_eat.hour}:{date_eat.minute:0>2}"
         elif line[4] == "중식":
             date_eat = datetime.strptime(line[1][1:], "%Y-%m-%d %H:%M:%S")
-            if date_eat.day not in eat_time[file[k]].keys():
-                eat_time[file[k]][date_eat.day] = {}
             eat_time[file[k]][date_eat.day][
                 "dinner"
             ] = f"{date_eat.hour}:{date_eat.minute:0>2}"
