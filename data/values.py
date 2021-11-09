@@ -27,19 +27,19 @@ for i in range(len(col3)):
 # In[2]:
 
 
-file
+#file
 
 
 # In[3]:
 
 
-sex
+#sex
 
 
 # In[4]:
 
 
-age
+#age
 
 
 # In[5]:
@@ -213,59 +213,49 @@ while k < len(file):
 # In[7]:
 
 
-outing_density
+#outing_density
 
 
 # In[8]:
 
 
-activition_score
+#activition_score
 
 
 # In[9]:
 
 
-place_toilet
+#place_toilet
 
 
 # In[10]:
 
 
-place_kitchen
+#place_kitchen
 
 
 # In[11]:
 
 
-place_living
+#place_living
 
 
 # In[12]:
 
 
-total_people_num
+#total_people_num
 
 
 # In[13]:
 
 
-recent_sooni_talk
+#recent_sooni_talk
 
 
 # In[14]:
 
 
-pill_time
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
+#pill_time
 
 
 
