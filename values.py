@@ -7,6 +7,7 @@
 import csv
 import json
 import openpyxl as xl
+from datetime import datetime
 
 wb = xl.load_workbook("data/user_profile.xlsx")
 col = wb["user_profile"]["A"][1:]
@@ -24,17 +25,18 @@ for i in range(len(col2)):
 for i in range(len(col3)):
     age[file[i]] = str(col3[i].value)
 
+
 # In[2]:
 
-#file
+# file
 
 # In[3]:
 
-#sex
+# sex
 
 # In[4]:
 
-#age
+# age
 
 # In[6]:
 
@@ -42,6 +44,12 @@ for i in range(len(col3)):
 
 k = 0  # for file index
 total_people_num = len(file)
+
+# Sleep time dict
+# sleep_time[id][day]["start"] or sleep_time[id][day]["end"]
+sleep_time = {}
+for f in file:
+    sleep_time[f] = {}
 
 # initial calculation
 outing_density = {}
@@ -91,6 +99,20 @@ while k < len(file):
     # reading for each csv file
     for line in rdr:
         ##print(line[2])
+
+        # Record sleeping time
+        if line[4] == "수면":
+            day_sleep_start = datetime.strptime(line[1][1:], "%Y-%m-%d %H:%M:%S")
+        elif line[4] == "기상하기":
+            day_sleep_end = datetime.strptime(line[1][1:], "%Y-%m-%d %H:%M:%S")
+            if (
+                day_sleep_start.day == day_sleep_end.day
+                or day_sleep_start.day + 1 == day_sleep_end.day
+            ):
+                sleep_time[file[k]][day_sleep_end.day] = {
+                    "start": f"{day_sleep_start.hour}:{day_sleep_start.minute:0>2}",
+                    "end": f"{day_sleep_end.hour}:{day_sleep_end.minute:0>2}",
+                }
 
         if line[2] == "외출":  # calculation outing density
             local_outing += 1
@@ -260,6 +282,7 @@ while k < len(file):
 
 
 user_data = {
+    "sleep_time": sleep_time,
     "outing_density": outing_density,
     "activation_score": activition_score,
     "place_toilet": place_toilet,
@@ -269,7 +292,7 @@ user_data = {
     "recent_sooni_talk": recent_sooni_talk,
     "pill_time": pill_time,
     "sex": sex,
-    "age": age
+    "age": age,
 }
 
 with open("data/user_data.json", "w") as f:
