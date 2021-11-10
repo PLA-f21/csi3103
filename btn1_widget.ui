@@ -1083,6 +1083,25 @@ border-radius: 3px;</string>
     <string>취침</string>
    </property>
   </widget>
+  <widget class="QLabel" name="active_time_label">
+   <property name="geometry">
+    <rect>
+     <x>510</x>
+     <y>170</y>
+     <width>411</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 25 10pt &quot;Fira Code Light&quot;;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
   <zorder>box1</zorder>
   <zorder>box2</zorder>
   <zorder>box3</zorder>
@@ -1121,6 +1140,7 @@ border-radius: 3px;</string>
   <zorder>sleep_end_label</zorder>
   <zorder>label</zorder>
   <zorder>label_2</zorder>
+  <zorder>active_time_label</zorder>
  </widget>
  <resources>
   <include location="data/images/resources.qrc"/>

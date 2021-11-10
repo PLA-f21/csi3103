@@ -62,6 +62,14 @@ for f in file:
 # initial calculation
 outing_density = {}
 
+# Out time dict
+# user_data["out_time"][id][month][day]
+out_time = {}
+for f in file:
+    out_time[f] = {"8": {}}
+    for d in range(1, 32):
+        out_time[f]["8"][d] = 0
+
 # under these are density
 place_toilet = {}
 place_kitchen = {}
@@ -145,6 +153,14 @@ while k < len(file):
             ] = f"{date_eat.hour}:{date_eat.minute:0>2}"
         if line[2] == "외출":  # calculation outing density
             local_outing += 1
+
+        if line[4] == "외출하기":
+            date_out_start = datetime.strptime(line[1][1:], "%Y-%m-%d %H:%M:%S")
+        elif line[4] == "귀가하기":
+            date_out_end = datetime.strptime(line[1][1:], "%Y-%m-%d %H:%M:%S")
+            deltatime = (date_out_end - date_out_start).seconds/60
+            out_time[file[k]]["8"][date_out_start.day] += deltatime
+
 
         # calculation activition score
         if line[2] == "매우 활동":
@@ -334,6 +350,7 @@ while k < len(file):
 user_data = {
     "sleep_time": sleep_time,
     "eat_time": eat_time,
+    "out_time": out_time,
     "outing_density": outing_density,
     "activation_score": activation_score,
     "place_toilet": place_toilet,
