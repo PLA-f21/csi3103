@@ -6,7 +6,7 @@ widget1_class = uic.loadUiType("btn1_widget.ui")[0]
 
 class Ui_btn1_widget(widget1_class, QtWidgets.QWidget):
     def change_week(self, week, id):
-        date = ' '
+        date = " "
 
         with open("data/user_data.json") as f:
             user_data = json.load(f)
@@ -17,15 +17,24 @@ class Ui_btn1_widget(widget1_class, QtWidgets.QWidget):
 
         for day in week:
             try:
-                num_sleep.append(user_data["sleep_time"][str(id)][str(day.month)][str(day.day)])
-                start_label += "{:^5}  ".format(user_data["sleep_time"][str(id)][str(day.month)][str(day.day)]["start"])
-                end_label += "{:^5}  ".format(user_data["sleep_time"][str(id)][str(day.month)][str(day.day)]["end"])
+                num_sleep.append(
+                    user_data["sleep_time"][str(id)][str(day.month)][str(day.day)]
+                )
+                start_label += "{:^5}  ".format(
+                    user_data["sleep_time"][str(id)][str(day.month)][str(day.day)][
+                        "start"
+                    ]
+                )
+                end_label += "{:^5}  ".format(
+                    user_data["sleep_time"][str(id)][str(day.month)][str(day.day)][
+                        "end"
+                    ]
+                )
             except:
-                num_sleep.append({"start" : "18:0", "end" : "18:0"})
+                num_sleep.append({"start": "18:0", "end": "18:0"})
                 start_label += "       "
                 end_label += "       "
-            date += "{:^5}  ".format(str(day.month)+ '.' + str(day.day))
-
+            date += "{:^5}  ".format(str(day.month) + "." + str(day.day))
 
         date = date[:-2]
         self.sleep_start_label.setText(start_label)
@@ -51,8 +60,6 @@ class Ui_btn1_widget(widget1_class, QtWidgets.QWidget):
         len = (pos2 - pos1) * 81 / 720
 
         widget.setGeometry(widget.pos().x(), ypos, widget.size().width(), len)
-
-
 
     def draw_sleep(self, num_sleep):
         self.set_deltatime(self.sleep_bar_1, num_sleep[0])

@@ -29,10 +29,10 @@ print(user_data["sleep_time"]["490"]["8"]["25"]) # {'start': '23:20', 'end': '6:
 # user_data["activition_score"]["average"] 이게 평균
 
 rank = 0
-my_score = user_data["activition_score"][id] # id example) id = "228"
-for uid in user_data["activition_score"].keys():
-    if (float(my_score) >= float(user_data["activition_score"][uid])) and uid != "average":
+my_score = user_data["activation_score"][id] # id example) id = "228"
+for uid in user_data["activation_score"].keys():
+    if (float(my_score) >= float(user_data["actavition_score"][uid])) and uid != "average":
         rank += 1
 
-rate = rank * 100 // (len(user_data["activition_score"]) - 1) # because we have to exclude "average"
+rate = rank * 100 // (len(user_data["activation_score"]) - 1) # because we have to exclude "average"
 ```
