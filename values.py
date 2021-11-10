@@ -436,7 +436,6 @@ for id in file:
 
 # In[ ]:
 
-
 user_data = {
     "sleep_time": sleep_time,
     "eat_time": eat_time,
