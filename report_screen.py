@@ -177,6 +177,7 @@ class report_screen(QtWidgets.QDialog, report_class):
         self.btn1_widget.set_eating_table(self.calendar_list[index], str(self.ID_num))
         self.btn1_widget.change_week(self.calendar_list[index], str(self.ID_num))
         self.btn2_widget.init(str(self.ID_num), self.cur_month)
+        self.btn3_widget.init(str(self.ID_num), self.cur_month)
 
     def set_time(self):
         cur_time = datetime.datetime.now()

@@ -74,36 +74,38 @@ class Ui_btn1_widget(widget1_class, QtWidgets.QWidget):
         self.set_active_text()
 
     def set_sleep_text(self):
-        self.text_browser_sleep.clear()
-        start = numpy.std(self.sleep_start_numpy)
-        end = numpy.std(self.sleep_end_numpy)
-        len_mean = numpy.mean(self.sleep_len_numpy)
+        if not (len(self.sleep_start_numpy) == 0 or len(self.sleep_end_numpy) == 0 or len(self.sleep_len_numpy) == 0):
+            start = numpy.std(self.sleep_start_numpy)
+            end = numpy.std(self.sleep_end_numpy)
+            len_mean = numpy.mean(self.sleep_len_numpy)
 
-        msg = ""
-        if start == 0 and end == 0:
-            msg += "분석할 정보가 부족해요 "
-        else:
-            if start < 30:
-                msg += "취침 시간이 특히 규칙적이에요! "
-            elif start > 150:
-                msg += "취침 시간이 특히 불규칙해요! "
-
-            if end < 30:
-                msg += "기상 시간이 특히 규칙적이에요! "
-            elif end > 150:
-                msg += "기상 시간이 특히 불규칙해요! "
-
-            msg += "현재 평균 취침시간은 " + str(int(len_mean / 60)) + "시간 " + str(int(len_mean % 60)) + "분이에요. "
-            if len_mean > 480 :
-                msg += "충분한 양의 수면을 취하고 있어요! 충분한 잠도 좋지만 일찍 일어나서 아침산책은 어떨까요? "
-            elif 420 < len_mean:
-                msg += "적당한 양의 수면을 취하고 있어요!"
-            elif len_mean < 360:
-                msg += "수면시간이 6시간 미만으로 내려가면 치매에 걸릴 확률이 높아진다고 해요. 7시간 이상의 충분한 수면을 취하는 것을 권장드려요. "
+            msg = ""
+            if start == 0 or start and end == 0:
+                msg += "분석할 정보가 부족해요 "
             else:
-                msg += "문제가 있는 수면시간은 아니지만, 권장 수면시간보다는 조금 적게 자고 있어요! 권장 수면시간은 7시간에서 8시간 사이라고 해요. "
+                if start < 30:
+                    msg += "취침 시간이 특히 규칙적이에요! "
+                elif start > 150:
+                    msg += "취침 시간이 특히 불규칙해요! "
 
-        self.text_browser_sleep.append(msg)
+                if end < 30:
+                    msg += "기상 시간이 특히 규칙적이에요! "
+                elif end > 150:
+                    msg += "기상 시간이 특히 불규칙해요! "
+
+                msg += "현재 평균 취침시간은 " + str(int(len_mean / 60)) + "시간 " + str(int(len_mean) % 60) + "분이에요. "
+                if len_mean > 480 :
+                    msg += "충분한 양의 수면을 취하고 있어요! 충분한 잠도 좋지만 일찍 일어나서 아침산책은 어떨까요? "
+                elif 420 < len_mean:
+                    msg += "적당한 양의 수면을 취하고 있어요!"
+                elif len_mean < 360:
+                    msg += "수면시간이 6시간 미만으로 내려가면 치매에 걸릴 확률이 높아진다고 해요. 7시간 이상의 충분한 수면을 취하는 것을 권장드려요. "
+                else:
+                    msg += "문제가 있는 수면시간은 아니지만, 권장 수면시간보다는 조금 적게 자고 있어요! 권장 수면시간은 7시간에서 8시간 사이라고 해요. "
+
+            self.text_browser_sleep.append(msg)
+        else:
+            self.text_browser_sleep.clear()
 
     def set_active_text(self):
         self.text_browser_active.clear()
