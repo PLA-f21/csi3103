@@ -47,14 +47,8 @@ class Ui_btn1_widget(widget1_class, QtWidgets.QWidget):
         pos1 = (map1[0] + 6) * 60 + map1[1]
         pos2 = (map2[0] + 6) * 60 + map2[1]
 
-        print(dict["start"], dict["end"])
-        print(pos1, pos2)
-        print(widget.pos())
-
         ypos = float(720 - pos2) * 81 / 720 + 100
         len = (pos2 - pos1) * 81 / 720
-
-        print(ypos, len)
 
         widget.setGeometry(widget.pos().x(), ypos, widget.size().width(), len)
 
@@ -78,8 +72,13 @@ class Ui_btn1_widget(widget1_class, QtWidgets.QWidget):
             user_data = json.load(f)
 
             for col in range(7):
+                month = str(week[col].month)
                 day = str(week[col].day)
-                eat_time = user_data["eat_time"][id]["8"][day]
-                self.eat_table.item(0, col).setText(eat_time["breakfast"])
-                self.eat_table.item(1, col).setText(eat_time["lunch"])
-                self.eat_table.item(2, col).setText(eat_time["dinner"])
+                try:
+                    eat_time = user_data["eat_time"][id][month][day]
+                    self.eat_table.item(0, col).setText(eat_time["breakfast"])
+                    self.eat_table.item(1, col).setText(eat_time["lunch"])
+                    self.eat_table.item(2, col).setText(eat_time["dinner"])
+                except:
+                    pass
+
