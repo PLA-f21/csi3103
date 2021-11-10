@@ -26,22 +26,6 @@ for i in range(len(col3)):
     age[file[i]] = str(col3[i].value)
 
 
-# In[2]:
-
-# file
-
-# In[3]:
-
-# sex
-
-# In[4]:
-
-# age
-
-# In[6]:
-
-# ex) file '530' is empty
-
 k = 0  # for file index
 total_people_num = len(file)
 
@@ -78,7 +62,8 @@ activation_score = {}
 
 # sooni's talk
 recent_sooni_talk = {}
-recent_sooni_program = {}
+recent_sooni_program_day = {}
+recent_sooni_program_name = {}
 
 # if eating snack over 9, value is 1
 eating_snack = {}
@@ -212,10 +197,14 @@ while k < len(file):
             recent_sooni_talk[file[k]] = line[7]
 
         if line[3] == "Act":
-            recent_sooni_program[file[k]] = ""
+            recent_sooni_program_day[file[k]] = ""
+
+        if line[4] == "State":
+            recent_sooni_program_name[file[k]] = ""
 
         if line[3] == "프로그램 참여":
-            recent_sooni_program[file[k]] = line[1]
+            recent_sooni_program_day[file[k]] = line[1]
+            recent_sooni_program_name[file[k]] = line[4]
 
         # medicine (pill) time check
         if line[2] == "약":
@@ -431,6 +420,7 @@ user_data = {
     "eating_snack": eating_snack,
     "living_score": living_score,
     "pill_day": pill_day,
+    "recent_sooni_program_day": recent_sooni_program_day,
 }
 
 with open("data/user_data.json", "w") as f:
