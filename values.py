@@ -79,6 +79,7 @@ eating_snack = {}
 pill_time = {}
 # display the unbalance time. if this is empty, not eating pill or eating well
 
+living_score = {}
 # In[7]:
 
 
@@ -94,14 +95,14 @@ while k < len(file):
 
     local_activation_score = 0.0
     local_totalactivition = 0
-    
+
     local_eating_snack = 0
 
     i = 2  # pill time index
     local_pill = []
     local_pill_unbalance = ""
     local_pill_flag = False
-    
+
     if int(file[k]) < 30064:
         f = open("data/hs_g73_m08/hs_" + file[k] + "_m08_0903_1355.csv", "r")
     else:
@@ -181,11 +182,11 @@ while k < len(file):
             local_place_kitchen += 1
             local_totalplace += 1
 
-        #eating bad
+        # eating bad
         if line[2] == "식사 판단" and line[3] == "간식":
             local_eating_snack += 1
-        
-        #sooni's talk
+
+        # sooni's talk
         if line[7] == "Message_1":
             recent_sooni_talk[file[k]] = ""
 
@@ -270,14 +271,69 @@ while k < len(file):
         pill_time[file[k]] = local_pill_unbalance
     else:
         pill_time[file[k]] = ""
-    
+
     if local_eating_snack > 8:
-        eating_snack[file[k]] = int(3 + ((local_eating_snack - 9) // 3)) # this person eating snack at meal so much.
+        eating_snack[file[k]] = int(
+            3 + ((local_eating_snack - 9) // 3)
+        )  # this person eating snack at meal so much.
     else:
         eating_snack[file[k]] = int(0)
 
-    # plus file index
+    # plus file indexdd
     k += 1
+
+for id in file:
+    # Caculate Living score
+    local_living_score = 100
+
+    activation_rank = 0
+    activation_my = activation_score[id]
+    for uid in file:
+        if (float(activation_my) >= float(activation_score[uid])) and uid != "average":
+            activation_rank += 1
+    activation_rate = activation_rank * 100 // (len(activation_score) - 1)
+
+    outing_rank = 0
+    outing_my = outing_density[id]
+    for uid in file:
+        if (float(outing_my) >= float(outing_density[uid])) and uid != "average":
+            outing_rank += 1
+    outing_rate = outing_rank * 100 // (len(outing_density) - 1)
+
+    if activation_rate > 79:
+        activation_score_ = activation_rate - 77
+    else:
+        activation_score_ = 0
+
+    if outing_rate > 79:
+        outing_score = outing_rate - 77
+    else:
+        outing_score = 0
+
+    if pill_time[id]:
+        pill_score = 5
+    else:
+        pill_score = 0
+
+    snack_score = eating_snack[id]
+
+    scores = {
+        "activation_score": activation_score_,
+        "outing_score": outing_score,
+        "pill_score": pill_score,
+        "snack_score": snack_score,
+    }
+
+    worst = max(scores, key=scores.get)
+    for s in scores.values():
+        local_living_score -= s
+
+    living_score[id] = {
+        "score": local_living_score,
+        "worst": worst,
+        "activation_rate": activation_rate,
+        "outing_rate": outing_rate,
+    }
 
 
 # In[8]:
@@ -344,7 +400,8 @@ user_data = {
     "pill_time": pill_time,
     "sex": sex,
     "age": age,
-    "eating_snack": eating_snack
+    "eating_snack": eating_snack,
+    "living_score": living_score,
 }
 
 with open("data/user_data.json", "w") as f:

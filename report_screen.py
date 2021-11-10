@@ -42,8 +42,7 @@ class report_screen(QtWidgets.QDialog, report_class):
         self.btn1_click()
         self.set_time()
         self.init_calendar()
-
-
+        self.set_living_score()
 
     def sec_changed(self):
         self.set_time()
@@ -173,6 +172,9 @@ class report_screen(QtWidgets.QDialog, report_class):
         self.date.setText(cur_date)
         self.time.setText(cur_hour)
         self.timer.start((60 - cur_time.second) * 1000)
+
+    def set_living_score(self):
+        self.btn1_widget.set_living_score(str(self.ID_num))
 
 
 import resources_rc
