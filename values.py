@@ -66,7 +66,7 @@ outing_density = {}
 place_toilet = {}
 place_kitchen = {}
 place_living = {}  # ex) watching tv
-activition_score = {}
+activation_score = {}
 
 # sooni's talk
 recent_sooni_talk = {}
@@ -90,7 +90,7 @@ while k < len(file):
     local_place_kitchen = 0
     local_place_living = 0
 
-    local_activition_score = 0.0
+    local_activation_score = 0.0
     local_totalactivition = 0
 
     i = 2  # pill time index
@@ -143,21 +143,21 @@ while k < len(file):
 
         # calculation activition score
         if line[2] == "매우 활동":
-            local_activition_score += 2.0
+            local_activation_score += 2.0
             local_totalactivition += 1
         elif line[2] == "활동":
-            local_activition_score += 1.0
+            local_activation_score += 1.0
             local_totalactivition += 1
         elif line[2] == "미동":
-            local_activition_score += 0.3
+            local_activation_score += 0.3
             local_totalactivition += 1
         elif line[2] == "부동":
             local_totalactivition += 1
         elif line[2] == "프로그램":
-            local_activition_score += 1.0
+            local_activation_score += 1.0
             local_totalactivition += 1
         elif line[2] == "외출":
-            local_activition_score += 1.0
+            local_activation_score += 1.0
             local_totalactivition += 1
 
         # calculation place density(int number)
@@ -227,13 +227,13 @@ while k < len(file):
     )
 
     try:
-        activition_score[file[k]] = format(
-            (local_activition_score / local_totalactivition), ".5f"
+        activation_score[file[k]] = format(
+            (local_activation_score / local_totalactivition), ".5f"
         )
     except ZeroDivisionError:
-        activition_score[file[k]] = 0.00000
-    activition_score["average"] = sum(map(float, activition_score.values())) / len(
-        activition_score
+        activation_score[file[k]] = 0.00000
+    activation_score["average"] = sum(map(float, activation_score.values())) / len(
+        activation_score
     )
 
     try:
@@ -320,7 +320,7 @@ user_data = {
     "sleep_time": sleep_time,
     "eat_time": eat_time,
     "outing_density": outing_density,
-    "activation_score": activition_score,
+    "activation_score": activation_score,
     "place_toilet": place_toilet,
     "place_kitchen": place_kitchen,
     "place_living": place_living,
