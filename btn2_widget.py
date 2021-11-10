@@ -16,11 +16,13 @@ class Ui_btn2_widget(widget1_class, QtWidgets.QWidget):
             user_data = json.load(f)
         if month != 8:
             self.title_label.setText(str(month) + "월은 분석할 데이터가 없어요..")
+            self.image_label.setStyleSheet("")
 
         else:
             self.title_label.setText("8월은 참 더웠어요!")
+            self.image_label.setStyleSheet("border-image: url(:/report_screen/report_summer.png);")
 
-            msg1 = ""
+            msg1 = "그래도 이제 슬슬 여름이 끝나고 가을이 되려고 해요!\n아직은 덥지만, 가을이 되면 단풍놀이도 가고 싶어요!"
 
             recent_program_day = datetime.datetime.strptime(
                 str(user_data["recent_sooni_program_day"][id])[1:], "%Y-%m-%d %H:%M:%S"
@@ -30,7 +32,7 @@ class Ui_btn2_widget(widget1_class, QtWidgets.QWidget):
             if recent_program_name == "":
                 msg2 = "순이와 했던 활동이 없어요.."
             else:
-                msg2 = "최근에는 순이와 " + str(recent_program_day.month) + "월 " + str(recent_program_day.day) +"일에 \"" + recent_program_name + "\"를 했어요!\n\n"
+                msg2 = "최근에는 순이와 " + str(recent_program_day.month) + "월 " + str(recent_program_day.day) +"일에 " + recent_program_name + "를 했어요!\n\n"
                 if recent_program_name =='순이체조':
                     msg2 += "체조를 하면 몸도 마음도 가벼워 진 것 같아요! 순이와 한 체조는 재미있었나요?"
                 elif recent_program_name == '순이 특별대화':
@@ -100,9 +102,9 @@ class Ui_btn2_widget(widget1_class, QtWidgets.QWidget):
             msg3 += "\"\n\n\n\n"
             talk_num = user_data["user_talk"][id]
 
-            if talk_num > 10:
+            if talk_num > 20:
                 msg3 += "순이와 많은 이야기를 하셨어요!\n이번 달에 무려 " + str(talk_num) + "번이나 이야기했어요! 앞으로도 순이와 많이 이야기 해 주실거죠?"
-            elif talk_num > 5:
+            elif talk_num > 10:
                 msg3 += "순이와 친해지는 중인 것 같아요!\n이번 달에 " + str(talk_num) +"번 이야기를 나눴어요! 앞으로도 잘 부탁드려요!"
             elif talk_num > 1:
                 msg3 += "순이와 더 이야기해주면 순이는 기쁠 것 같아요!\n이번 달에 " + str(talk_num) + "번밖에 이야기하지 않았어요.. 앞으로도 잘 부탁드려요!"
