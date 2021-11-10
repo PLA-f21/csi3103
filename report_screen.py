@@ -19,6 +19,7 @@ report_class = uic.loadUiType("report_screen.ui")[0]
 
 class report_screen(QtWidgets.QDialog, report_class):
     def initialize_screen(self, id_in):
+        self.get_info(id_in)
         self.timer = QtCore.QTimer(self)
         self.timer.timeout.connect(self.sec_changed)
         self.btn1.clicked.connect(self.btn1_click)
@@ -39,10 +40,9 @@ class report_screen(QtWidgets.QDialog, report_class):
         self.btn1_widget.setParent(self.widget1)
 
         self.btn1_click()
-        self.set_time()
         self.init_calendar()
 
-        self.get_info(id_in)
+        self.set_time()
 
     def sec_changed(self):
         self.set_time()
@@ -161,6 +161,7 @@ class report_screen(QtWidgets.QDialog, report_class):
     def choose_week(self, index):
         # self.calendar_list[index]
         self.btn1_widget.change_week(self.calendar_list[index])
+        self.btn1_widget.set_eating_table(self.calendar_list[index], str(self.ID_num))
 
     def set_time(self):
         cur_time = datetime.datetime.now()
