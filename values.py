@@ -102,6 +102,7 @@ while k < len(file):
     local_pill = []
     local_pill_unbalance = ""
     local_pill_flag = False
+    
     if int(file[k]) < 30064:
         f = open("data/hs_g73_m08/hs_" + file[k] + "_m08_0903_1355.csv", "r")
     else:
@@ -271,7 +272,7 @@ while k < len(file):
     else:
         pill_time[file[k]] = ""
     
-    if local_eating_snack >8:
+    if local_eating_snack > 8:
         eating_snack[file[k]] = '1' # this person eating snack at meal so much.
     else:
         eating_snack[file[k]] = '0'
