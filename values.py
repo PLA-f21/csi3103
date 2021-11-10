@@ -305,14 +305,14 @@ for id in file:
     activation_rank = 0
     activation_my = activation_score[id]
     for uid in file:
-        if (float(activation_my) >= float(activation_score[uid])) and uid != "average":
+        if (float(activation_my) <= float(activation_score[uid])) and uid != "average":
             activation_rank += 1
     activation_rate = activation_rank * 100 // (len(activation_score) - 1)
 
     outing_rank = 0
     outing_my = outing_density[id]
     for uid in file:
-        if (float(outing_my) >= float(outing_density[uid])) and uid != "average":
+        if (float(outing_my) <= float(outing_density[uid])) and uid != "average":
             outing_rank += 1
     outing_rate = outing_rank * 100 // (len(outing_density) - 1)
 
