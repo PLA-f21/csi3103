@@ -70,15 +70,15 @@ class Ui_btn1_widget(widget1_class, QtWidgets.QWidget):
         self.set_deltatime(self.sleep_bar_7, num_sleep[6])
 
 
-    def set_eating_table(self, weak, id):
-        for i in range(len(weak)):
-            self.eat_table.horizontalHeaderItem(i).setText(str(weak[i].day))
+    def set_eating_table(self, week, id):
+        for i in range(len(week)):
+            self.eat_table.horizontalHeaderItem(i).setText(str(week[i].day))
 
         with open("data/user_data.json") as f:
             user_data = json.load(f)
 
             for col in range(7):
-                day = str(weak[col].day)
+                day = str(week[col].day)
                 eat_time = user_data["eat_time"][id]["8"][day]
                 self.eat_table.item(0, col).setText(eat_time["breakfast"])
                 self.eat_table.item(1, col).setText(eat_time["lunch"])
