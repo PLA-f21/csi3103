@@ -43,7 +43,9 @@ class Ui_btn1_widget(widget1_class, QtWidgets.QWidget):
                 )
                 if user_data["out_time"][str(id)][str(day.month)][str(day.day)]:
                     num_out_time += "{:^5}  ".format(
-                        self.cal_min_to_str(user_data["out_time"][str(id)][str(day.month)][str(day.day)])
+                        self.cal_min_to_str(
+                            user_data["out_time"][str(id)][str(day.month)][str(day.day)]
+                        )
                     )
                 else:
                     num_out_time += "       "
@@ -90,10 +92,9 @@ class Ui_btn1_widget(widget1_class, QtWidgets.QWidget):
         self.set_deltatime_bar(self.sleep_bar_7, num_sleep[6])
 
     def cal_min_to_str(self, min):
-        hour = str(int(min/60))
-        min = str(int(min)%60)
+        hour = str(int(min / 60))
+        min = str(int(min) % 60)
         return str(hour) + ":" + str(min)
-
 
     def set_active_bar(self, widget, num):
         len = num * 81 / 720
@@ -132,5 +133,30 @@ class Ui_btn1_widget(widget1_class, QtWidgets.QWidget):
             user_data = json.load(f)
 
         living_score = user_data["living_score"][id]["score"]
+        worst = user_data["living_score"][id]["worst"]
+
+        if living_score > 79:
+            msg = "정말 규칙적인 생활을 하고 계신 것 같아요!\n 충분한 수면을 취하시고, 주말에 잠깐 산책을 다녀오시는 것을 추천 드려요!"
+        elif worst == "activation_score":
+            msg = f"전체 사용자에 비해서 활동하시는 경우가 적으시네요!\n 사용자님의 활동점수는 상위 {user_data['living_score'][id]['activation_rate']}%에요!"
+        elif worst == "outing_score":
+            msg = f"전체 사용자에 비해서 외출하시는 경우가 적으시네요!\n 사용자님의 활동점수는 상위 {user_data['living_score'][id]['outing_rate']}%에요!"
+        elif worst == "pill_score":
+            msg = "약은 정해진 시간에 규칙적으로 먹어야 해요!"
+        elif worst == "snack_score":
+            msg = "간편식을 식사 대용으로 너무 많이 하셨어요! 몸에 좋지 못한 습관이에요!"
+        else:
+            msg = ""
+        rank = 0
+        my_score = user_data["living_score"][id]["score"]  # id example) id = "228"
+        for uid in user_data["living_score"].keys():
+            if (
+                float(my_score) <= float(user_data["living_score"][uid]["score"])
+            ) and uid != "average":
+                rank += 1
+
+        rate = rank * 100 // (len(user_data["living_score"]) - 1)
+
+        msg += f"\n\n사용자님의 생활점수는 상위 {rate}%에요!"
         self.text_browser_score.append(str(living_score))
-        self.text_browser_total.append("hahaha")
+        self.text_browser_total.append(msg)

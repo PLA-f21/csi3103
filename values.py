@@ -65,7 +65,7 @@ recent_sooni_talk = {}
 recent_sooni_program_day = {}
 recent_sooni_program_name = {}
 
-# if eating snack over 9, value is 1
+# if eating snack over 9, value downs
 eating_snack = {}
 
 # eating pill days are not overlapped
@@ -147,9 +147,8 @@ while k < len(file):
             date_out_start = datetime.strptime(line[1][1:], "%Y-%m-%d %H:%M:%S")
         elif line[4] == "귀가하기":
             date_out_end = datetime.strptime(line[1][1:], "%Y-%m-%d %H:%M:%S")
-            deltatime = (date_out_end - date_out_start).seconds/60
+            deltatime = (date_out_end - date_out_start).seconds / 60
             out_time[file[k]]["8"][date_out_start.day] += deltatime
-
 
         # calculation activition score
         if line[2] == "매우 활동":
@@ -196,14 +195,14 @@ while k < len(file):
 
         if (line[7] != "") and (line[7] != "프로그램 메시지") and (line[7] != "Message_1"):
             recent_sooni_talk[file[k]] = line[7]
-        
-        if (line[3] == "Act"):
+
+        if line[3] == "Act":
             recent_sooni_program_day[file[k]] = ""
-        
-        if (line[4] == "State"):
+
+        if line[4] == "State":
             recent_sooni_program_name[file[k]] = ""
-        
-        if (line[3] == "프로그램 참여"):
+
+        if line[3] == "프로그램 참여":
             recent_sooni_program_day[file[k]] = line[1]
             recent_sooni_program_name[file[k]] = line[4]
 
@@ -293,7 +292,7 @@ while k < len(file):
         )  # this person eating snack at meal so much.
     else:
         eating_snack[file[k]] = int(0)
-    
+
     pill_day[file[k]] = local_pill_day
 
     # plus file indexdd
@@ -306,14 +305,14 @@ for id in file:
     activation_rank = 0
     activation_my = activation_score[id]
     for uid in file:
-        if (float(activation_my) >= float(activation_score[uid])) and uid != "average":
+        if (float(activation_my) <= float(activation_score[uid])) and uid != "average":
             activation_rank += 1
     activation_rate = activation_rank * 100 // (len(activation_score) - 1)
 
     outing_rank = 0
     outing_my = outing_density[id]
     for uid in file:
-        if (float(outing_my) >= float(outing_density[uid])) and uid != "average":
+        if (float(outing_my) <= float(outing_density[uid])) and uid != "average":
             outing_rank += 1
     outing_rate = outing_rank * 100 // (len(outing_density) - 1)
 
