@@ -329,9 +329,9 @@ p, li { white-space: pre-wrap; }
   <widget class="QTextBrowser" name="text_browser_score">
    <property name="geometry">
     <rect>
-     <x>610</x>
+     <x>630</x>
      <y>370</y>
-     <width>81</width>
+     <width>71</width>
      <height>41</height>
     </rect>
    </property>
@@ -344,7 +344,7 @@ p, li { white-space: pre-wrap; }
    <property name="styleSheet">
     <string notr="true">background-color: rgba(255, 255, 255, 0);
 border: None;
-font: 17pt &quot;마루 부리 Beta&quot;;
+font: 22pt &quot;마루 부리 Beta&quot;;
 color: rgb(10, 204, 236);</string>
    </property>
    <property name="verticalScrollBarPolicy">
@@ -357,8 +357,8 @@ color: rgb(10, 204, 236);</string>
     <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'마루 부리 Beta'; font-size:17pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'마루 부리 Beta'; font-size:22pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:17pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
   <widget class="QLabel" name="sleep_range">
