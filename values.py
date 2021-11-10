@@ -344,6 +344,7 @@ user_data = {
     "pill_time": pill_time,
     "sex": sex,
     "age": age,
+    "eating_snack": eating_snack
 }
 
 with open("data/user_data.json", "w") as f:
