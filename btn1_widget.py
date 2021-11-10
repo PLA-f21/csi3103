@@ -94,7 +94,6 @@ class Ui_btn1_widget(widget1_class, QtWidgets.QWidget):
         self.set_active_bar(self.active_bar_6, num_active[5])
         self.set_active_bar(self.active_bar_7, num_active[6])
 
-
     def set_eating_table(self, week, id):
         for i in range(len(week)):
             self.eat_table.horizontalHeaderItem(i).setText(str(week[i].day))
@@ -113,3 +112,37 @@ class Ui_btn1_widget(widget1_class, QtWidgets.QWidget):
                 except:
                     pass
 
+    def set_living_score(serlf, id):
+        living_score = 100
+
+        with open("data/user_data.json") as f:
+            user_data = json.load(f)
+
+        activation_rank = 0
+        activation_my = user_data["activation_score"][id]
+        for uid in user_data["activation_score"].keys():
+            if (
+                float(activation_my) >= float(user_data["activation_score"][uid])
+            ) and uid != "average":
+                activation_rank += 1
+        activation_rate = (
+            activation_rank * 100 // (len(user_data["activation_score"]) - 1)
+        )
+
+        outing_rank = 0
+        outing_my = user_data["outing_density"][id]
+        for uid in user_data["outing_density"].keys():
+            if (
+                float(outing_my) >= float(user_data["outing_density"][uid])
+            ) and uid != "average":
+                outing_rank += 1
+        outing_rate = outing_rank * 100 // (len(user_data["outing_density"]) - 1)
+
+        if activation_rate > 79:
+            living_score -= 77 - activation_rate
+
+        if outing_rate > 79:
+            living_score -= 77 - outing_rate
+
+        if user_data["pill_time"][id]:
+            living_score -= 5
