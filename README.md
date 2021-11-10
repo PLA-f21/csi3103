@@ -16,7 +16,7 @@ print(user_data["eat_time"]["490"]["25"]["breakfast"]) # 7:24
 print(user_data["eat_time"]["228"]["5"]) # {'breakfast': '-', 'lunch': '-', 'dinner': '-'}
 # id 228 didn't eat anyting(?) on the 5th 
 
-print(user_data["sleep_time"]["490"]["25"] # {'start': '23:20', 'end': '6:03'}
+print(user_data["sleep_time"]["490"]["25"]) # {'start': '23:20', 'end': '6:03'}
 # id 490 slept on the 24th 23:20 and woke up on the 25th 6:03 
 ```
 
