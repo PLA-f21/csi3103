@@ -70,6 +70,10 @@ class Ui_btn2_widget(widget1_class, QtWidgets.QWidget):
             elif recent_program_name == '마음그림터':
                 msg2 += "오늘은 또 어떤 이야기를 그려볼까요? 순이와 함께 마음 속을 알아보아요!"
 
+        most_program_name = user_data["most_sooni_program_name"][id]
+        most_program_num = user_data["most_sooni_program_num"][id]
+        entire_program_num = user_data["entire_sooni_program_num"][id]
+        print(most_program_name, most_program_num, entire_program_num)
 
         recent_talk = user_data["recent_sooni_talk"][id]
         msg3 = "순이가 최근에 했던 말을 기억 하시나요?\n순이는 이런 말을 했어요!\n\n\""

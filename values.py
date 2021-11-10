@@ -64,6 +64,9 @@ activation_score = {}
 recent_sooni_talk = {}
 recent_sooni_program_day = {}
 recent_sooni_program_name = {}
+most_sooni_program_name = {}
+most_sooni_program_num = {}
+entire_sooni_program_num = {}
 user_talk = {}
 
 # if eating snack over 9, value downs
@@ -94,6 +97,10 @@ while k < len(file):
 
     local_eating_snack = 0
     local_user_talk = 0
+
+    # This is to find out the most_problem_name
+    program_list = []
+    program_count = []
 
     i = 2  # pill time index
     local_pill = []
@@ -207,6 +214,13 @@ while k < len(file):
         if line[3] == "프로그램 참여":
             recent_sooni_program_day[file[k]] = line[1]
             recent_sooni_program_name[file[k]] = line[4]
+            if line[4] in program_list:
+                program_count[program_list.index(line[4])] += 1
+            else:
+                program_list.append(line[4])
+                program_count.append(1)
+
+
 
         # medicine (pill) time check
         if line[2] == "약":
@@ -300,6 +314,20 @@ while k < len(file):
 
     pill_day[file[k]] = local_pill_day
     user_talk[file[k]] = local_user_talk
+
+    # find out the most_program
+    entire_sooni_program_num[file[k]] = 0
+    most_sooni_program_name[file[k]] = ""
+    max_num = 0
+    for i in range(len(program_list)):
+        if max_num < program_count[i]:
+            max_num = program_count[i]
+            most_sooni_program_name[file[k]] = program_list[i]
+            most_sooni_program_num[file[k]] = max_num
+        elif max_num == program_count[i]:
+            most_sooni_program_name[file[k]] += ', ' + program_list[i]
+        entire_sooni_program_num[file[k]] += program_count[i]
+
 
     # plus file indexdd
     k += 1
@@ -428,6 +456,9 @@ user_data = {
     "pill_day": pill_day,
     "recent_sooni_program_day": recent_sooni_program_day,
     "recent_sooni_program_name": recent_sooni_program_name,
+    "most_sooni_program_name": most_sooni_program_name,
+    "most_sooni_program_num": most_sooni_program_num,
+    "entire_sooni_program_num": entire_sooni_program_num,
     "user_talk": user_talk
 }
 
