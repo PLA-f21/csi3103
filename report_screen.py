@@ -10,6 +10,7 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets, uic
 from btn1_widget import Ui_btn1_widget
+from btn2_widget import Ui_btn2_widget
 import openpyxl
 import datetime
 import calendar
@@ -38,6 +39,10 @@ class report_screen(QtWidgets.QDialog, report_class):
         self.btn1_widget = Ui_btn1_widget()
         self.btn1_widget.setupUi(self.btn1_widget)
         self.btn1_widget.setParent(self.widget1)
+
+        self.btn2_widget = Ui_btn2_widget()
+        self.btn2_widget.setupUi(self.btn2_widget)
+        self.btn2_widget.setParent(self.widget2)
 
         self.btn1_click()
         self.set_time()
