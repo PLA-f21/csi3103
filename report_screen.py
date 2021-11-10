@@ -38,11 +38,13 @@ class report_screen(QtWidgets.QDialog, report_class):
         self.btn1_widget.setupUi(self.btn1_widget)
         self.btn1_widget.setParent(self.widget1)
 
+        self.get_info(id_in)
+
         self.btn1_click()
         self.set_time()
         self.init_calendar()
 
-        self.get_info(id_in)
+
 
     def sec_changed(self):
         self.set_time()
@@ -160,7 +162,7 @@ class report_screen(QtWidgets.QDialog, report_class):
 
     def choose_week(self, index):
         # self.calendar_list[index]
-        self.btn1_widget.change_week(self.calendar_list[index])
+        self.btn1_widget.change_week(self.calendar_list[index], self.ID_num)
 
     def set_time(self):
         cur_time = datetime.datetime.now()

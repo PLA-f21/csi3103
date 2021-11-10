@@ -96,6 +96,7 @@ class Ui_MainWindow(object):
             if ID_index:
                 self.MainWin.hide()
                 self.report_screen_dialog = QtWidgets.QDialog()
+                self.report_screen_dialog.setFixedSize(1300, 700)
                 self.report_screen = report_screen()
                 self.report_screen.setupUi(self.report_screen_dialog)
 
