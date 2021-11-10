@@ -79,7 +79,6 @@ eating_snack = {}
 pill_time = {}
 # display the unbalance time. if this is empty, not eating pill or eating well
 
-
 # In[7]:
 
 
@@ -273,9 +272,9 @@ while k < len(file):
         pill_time[file[k]] = ""
     
     if local_eating_snack > 8:
-        eating_snack[file[k]] = '1' # this person eating snack at meal so much.
+        eating_snack[file[k]] = int(1 + ((local_eating_snack - 9) // 3)) # this person eating snack at meal so much.
     else:
-        eating_snack[file[k]] = '0'
+        eating_snack[file[k]] = int(0)
 
     # plus file index
     k += 1
