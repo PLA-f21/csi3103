@@ -426,6 +426,7 @@ user_data = {
     "living_score": living_score,
     "pill_day": pill_day,
     "recent_sooni_program_day": recent_sooni_program_day,
+    "recent_sooni_program_name": recent_sooni_program_name,
     "user_talk": user_talk
 }
 
