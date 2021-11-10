@@ -93,6 +93,7 @@ while k < len(file):
     local_totalactivition = 0
 
     local_eating_snack = 0
+    local_user_talk = 0
 
     i = 2  # pill time index
     local_pill = []
