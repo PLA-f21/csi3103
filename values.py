@@ -78,6 +78,7 @@ eating_snack = {}
 # plus, if want to display the time, we should ""recent 3 days""!!
 pill_time = {}
 # display the unbalance time. if this is empty, not eating pill or eating well
+pill_day = {}
 
 # In[7]:
 
@@ -99,6 +100,7 @@ while k < len(file):
 
     i = 2  # pill time index
     local_pill = []
+    local_pill_day = []
     local_pill_unbalance = ""
     local_pill_flag = False
     
@@ -195,6 +197,7 @@ while k < len(file):
         # medicine (pill) time check
         if line[2] == "약":
             local_pill.append(line[1])
+            local_pill_day.append(line[1][9:11])
 
         # if 3 days continuous time delay above 2 hours, pill flag is true (bad behavior)
         while i < len(local_pill):
@@ -275,6 +278,8 @@ while k < len(file):
         eating_snack[file[k]] = int(3 + ((local_eating_snack - 9) // 3)) # this person eating snack at meal so much.
     else:
         eating_snack[file[k]] = int(0)
+    
+    pill_day[file[k]] = local_pill_day
 
     # plus file index
     k += 1
