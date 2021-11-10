@@ -272,7 +272,7 @@ while k < len(file):
         pill_time[file[k]] = ""
     
     if local_eating_snack > 8:
-        eating_snack[file[k]] = int(1 + ((local_eating_snack - 9) // 3)) # this person eating snack at meal so much.
+        eating_snack[file[k]] = int(3 + ((local_eating_snack - 9) // 3)) # this person eating snack at meal so much.
     else:
         eating_snack[file[k]] = int(0)
 
