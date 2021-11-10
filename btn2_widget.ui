@@ -86,7 +86,7 @@
      <x>50</x>
      <y>70</y>
      <width>401</width>
-     <height>211</height>
+     <height>221</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -116,7 +116,7 @@ Border:None;</string>
      <x>40</x>
      <y>350</y>
      <width>401</width>
-     <height>211</height>
+     <height>231</height>
     </rect>
    </property>
    <property name="styleSheet">
