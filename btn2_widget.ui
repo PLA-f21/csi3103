@@ -16,29 +16,13 @@
   <property name="styleSheet">
    <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
   </property>
-  <widget class="QLabel" name="box2">
-   <property name="geometry">
-    <rect>
-     <x>480</x>
-     <y>0</y>
-     <width>461</width>
-     <height>291</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">border-image: url(:/report_screen/report_box.png);</string>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-  </widget>
   <widget class="QLabel" name="box3">
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>300</y>
-     <width>461</width>
-     <height>291</height>
+     <y>10</y>
+     <width>931</width>
+     <height>581</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -48,36 +32,110 @@
     <string/>
    </property>
   </widget>
-  <widget class="QLabel" name="box4">
+  <widget class="QLabel" name="what_activity">
    <property name="geometry">
     <rect>
-     <x>480</x>
+     <x>50</x>
      <y>300</y>
-     <width>461</width>
-     <height>291</height>
+     <width>261</width>
+     <height>31</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">border-image: url(:/report_screen/report_box.png);</string>
+    <string notr="true">font: 16pt &quot;마루 부리 Beta&quot;;</string>
+   </property>
+   <property name="text">
+    <string>순이와 어떤 활동을 했나요?</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="title_label">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>30</y>
+     <width>261</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 16pt &quot;마루 부리 Beta&quot;;</string>
+   </property>
+   <property name="text">
+    <string>8월은 참 더웠어요!</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="devider_vert">
+   <property name="geometry">
+    <rect>
+     <x>470</x>
+     <y>30</y>
+     <width>5</width>
+     <height>551</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-image: url(:/report_screen/report_devider_vert.png);</string>
    </property>
    <property name="text">
     <string/>
    </property>
   </widget>
-  <widget class="QLabel" name="box1">
+  <widget class="QTextBrowser" name="main_text_1">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>0</y>
-     <width>461</width>
-     <height>291</height>
+     <x>50</x>
+     <y>70</y>
+     <width>401</width>
+     <height>211</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">border-image: url(:/report_screen/report_box.png);</string>
+    <string notr="true">font: 10pt &quot;마루 부리 Beta&quot;;
+Border:None;</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="what_talk">
+   <property name="geometry">
+    <rect>
+     <x>520</x>
+     <y>30</y>
+     <width>311</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 16pt &quot;마루 부리 Beta&quot;;</string>
    </property>
    <property name="text">
-    <string/>
+    <string>순이와 어떤 이야기를 했나요?</string>
+   </property>
+  </widget>
+  <widget class="QTextBrowser" name="main_text_2">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>350</y>
+     <width>401</width>
+     <height>211</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 10pt &quot;마루 부리 Beta&quot;;
+Border:None;</string>
+   </property>
+  </widget>
+  <widget class="QTextBrowser" name="main_text_3">
+   <property name="geometry">
+    <rect>
+     <x>510</x>
+     <y>70</y>
+     <width>401</width>
+     <height>491</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 10pt &quot;마루 부리 Beta&quot;;
+Border:None;</string>
    </property>
   </widget>
  </widget>

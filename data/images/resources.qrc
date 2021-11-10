@@ -8,6 +8,7 @@
     <file>main_text_in.png</file>
   </qresource>
   <qresource prefix="report_screen">
+    <file>report_devider_vert.png</file>
     <file>report_table.png</file>
     <file>report_calendar_decrease.png</file>
     <file>report_calendar_decrease_hover.png</file>
