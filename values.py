@@ -64,6 +64,7 @@ activation_score = {}
 recent_sooni_talk = {}
 recent_sooni_program_day = {}
 recent_sooni_program_name = {}
+user_talk = {}
 
 # if eating snack over 9, value downs
 eating_snack = {}
@@ -210,6 +211,9 @@ while k < len(file):
         if line[2] == "약":
             local_pill.append(line[1])
             local_pill_day.append(line[1][9:11])
+        
+        if line[-5] != "" and line[-5] != "STT_1":
+            local_user_talk += 1
 
         # if 3 days continuous time delay above 2 hours, pill flag is true (bad behavior)
         while i < len(local_pill):
@@ -294,6 +298,7 @@ while k < len(file):
         eating_snack[file[k]] = int(0)
 
     pill_day[file[k]] = local_pill_day
+    user_talk[file[k]] = local_user_talk
 
     # plus file indexdd
     k += 1
@@ -421,6 +426,7 @@ user_data = {
     "living_score": living_score,
     "pill_day": pill_day,
     "recent_sooni_program_day": recent_sooni_program_day,
+    "user_talk": user_talk
 }
 
 with open("data/user_data.json", "w") as f:
