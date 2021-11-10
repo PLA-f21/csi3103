@@ -71,11 +71,13 @@ activation_score = {}
 # sooni's talk
 recent_sooni_talk = {}
 
+# if eating snack over 9, value is 1
+eating_snack = {}
+
 # eating pill days are not overlapped
 # plus, if want to display the time, we should ""recent 3 days""!!
 pill_time = {}
 # display the unbalance time. if this is empty, not eating pill or eating well
-
 
 # In[7]:
 
@@ -92,11 +94,14 @@ while k < len(file):
 
     local_activation_score = 0.0
     local_totalactivition = 0
+    
+    local_eating_snack = 0
 
     i = 2  # pill time index
     local_pill = []
     local_pill_unbalance = ""
     local_pill_flag = False
+    
     if int(file[k]) < 30064:
         f = open("data/hs_g73_m08/hs_" + file[k] + "_m08_0903_1355.csv", "r")
     else:
@@ -133,7 +138,7 @@ while k < len(file):
             eat_time[file[k]]["8"][date_eat.day][
                 "lunch"
             ] = f"{date_eat.hour}:{date_eat.minute:0>2}"
-        elif line[4] == "중식":
+        elif line[4] == "석식":
             date_eat = datetime.strptime(line[1][1:], "%Y-%m-%d %H:%M:%S")
             eat_time[file[k]]["8"][date_eat.day][
                 "dinner"
@@ -176,6 +181,11 @@ while k < len(file):
             local_place_kitchen += 1
             local_totalplace += 1
 
+        #eating bad
+        if line[2] == "식사 판단" and line[3] == "간식":
+            local_eating_snack += 1
+        
+        #sooni's talk
         if line[7] == "Message_1":
             recent_sooni_talk[file[k]] = ""
 
@@ -260,6 +270,11 @@ while k < len(file):
         pill_time[file[k]] = local_pill_unbalance
     else:
         pill_time[file[k]] = ""
+    
+    if local_eating_snack > 8:
+        eating_snack[file[k]] = int(1 + ((local_eating_snack - 9) // 3)) # this person eating snack at meal so much.
+    else:
+        eating_snack[file[k]] = int(0)
 
     # plus file index
     k += 1
@@ -329,6 +344,7 @@ user_data = {
     "pill_time": pill_time,
     "sex": sex,
     "age": age,
+    "eating_snack": eating_snack
 }
 
 with open("data/user_data.json", "w") as f:
