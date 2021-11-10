@@ -51,13 +51,26 @@
   <widget class="QWidget" name="verticalLayoutWidget">
    <property name="geometry">
     <rect>
-     <x>280</x>
+     <x>400</x>
      <y>80</y>
      <width>491</width>
      <height>471</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="layout_graph"/>
+  </widget>
+  <widget class="QTextBrowser" name="textBrowser">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>120</y>
+     <width>361</width>
+     <height>421</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">Border:None</string>
+   </property>
   </widget>
  </widget>
  <resources>
