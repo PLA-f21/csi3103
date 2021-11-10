@@ -112,19 +112,15 @@ class report_screen(QtWidgets.QDialog, report_class):
 
     def increase_calendar(self):
         self.month_increase.setCursor(QtCore.Qt.ClosedHandCursor)
-        self.cur_month += 1
-        if self.cur_month == 13:
-            self.cur_month = 1
-            self.cur_year += 1
+        if self.cur_month < 12:
+            self.cur_month += 1
         self.set_calendar()
         self.button_calendar_1_click()
 
     def decrease_calendar(self):
         self.month_decrease.setCursor(QtCore.Qt.ClosedHandCursor)
-        self.cur_month -= 1
-        if self.cur_month == 0:
-            self.cur_month = 12
-            self.cur_year -= 1
+        if self.cur_month > 1:
+            self.cur_month -= 1
         self.set_calendar()
         self.button_calendar_1_click()
 
