@@ -5,7 +5,7 @@ widget1_class = uic.loadUiType("btn1_widget.ui")[0]
 
 class Ui_btn1_widget(widget1_class, QtWidgets.QWidget):
     def change_week(self, week, id):
-        date = ''
+        date = ' '
 
         with open("data/user_data.json") as f:
             user_data = json.load(f)
@@ -16,32 +16,46 @@ class Ui_btn1_widget(widget1_class, QtWidgets.QWidget):
             try:
                 num_sleep.append(user_data["sleep_time"][str(id)][str(day.month)][str(day.day)])
             except:
-                num_sleep.append({"start" : "0:0", "end" : "0:0"})
-                print(0)
+                num_sleep.append({"start" : "18:0", "end" : "18:0"})
             date += "{:^5}  ".format(str(day.month)+ '.' + str(day.day))
 
-        date = date
+        date = date[:-2]
         self.sleep_range.setText(date)
         self.active_range.setText(date)
 
         self.draw_sleep(num_sleep)
 
     def set_deltatime(self, widget, dict):
-        map1 = map(int, dict["start"].split(":"))
-        map2 = map(int, dict["end"].split(":"))
+        map1 = list(map(int, dict["start"].split(":")))
+        map2 = list(map(int, dict["end"].split(":")))
 
-        if map1[0] > map2[0]:
+        if map1[0] >= 18:
             map1[0] -= 24
+        if map2[0] >= 18:
+            map2[0] -= 24
 
-        pos1 = map1[0] * 60 + map1[1]
-        pos2 = map2[0] * 60 + map2[1]
+        pos1 = (map1[0] + 6) * 60 + map1[1]
+        pos2 = (map2[0] + 6) * 60 + map2[1]
 
+        print(dict["start"], dict["end"])
         print(pos1, pos2)
+        print(widget.pos())
 
-        len = pos2 - pos1
+        ypos = float(720 - pos2) * 81 / 720 + 100
+        len = (pos2 - pos1) * 81 / 720
+
+        print(ypos, len)
+
+        widget.setGeometry(widget.pos().x(), ypos, widget.size().width(), len)
 
 
 
     def draw_sleep(self, num_sleep):
-        self.set_deltatime(self.sleep_bar_1,num_sleep[0])
+        self.set_deltatime(self.sleep_bar_1, num_sleep[0])
+        self.set_deltatime(self.sleep_bar_2, num_sleep[1])
+        self.set_deltatime(self.sleep_bar_3, num_sleep[2])
+        self.set_deltatime(self.sleep_bar_4, num_sleep[3])
+        self.set_deltatime(self.sleep_bar_5, num_sleep[4])
+        self.set_deltatime(self.sleep_bar_6, num_sleep[5])
+        self.set_deltatime(self.sleep_bar_7, num_sleep[6])
 
