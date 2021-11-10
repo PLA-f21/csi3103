@@ -1013,6 +1013,76 @@ border-radius: 3px;</string>
     </property>
    </item>
   </widget>
+  <widget class="QLabel" name="sleep_start_label">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>170</y>
+     <width>411</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 25 10pt &quot;Fira Code Light&quot;;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="sleep_end_label">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>70</y>
+     <width>411</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 25 10pt &quot;Fira Code Light&quot;;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>15</x>
+     <y>70</y>
+     <width>56</width>
+     <height>12</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 8pt &quot;마루 부리 Beta&quot;;</string>
+   </property>
+   <property name="text">
+    <string>기상</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>15</x>
+     <y>170</y>
+     <width>56</width>
+     <height>12</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 8pt &quot;마루 부리 Beta&quot;;</string>
+   </property>
+   <property name="text">
+    <string>취침</string>
+   </property>
+  </widget>
   <zorder>box1</zorder>
   <zorder>box2</zorder>
   <zorder>box3</zorder>
@@ -1047,6 +1117,10 @@ border-radius: 3px;</string>
   <zorder>active_bar_2</zorder>
   <zorder>active_bar_4</zorder>
   <zorder>eat_table</zorder>
+  <zorder>sleep_start_label</zorder>
+  <zorder>sleep_end_label</zorder>
+  <zorder>label</zorder>
+  <zorder>label_2</zorder>
  </widget>
  <resources>
   <include location="data/images/resources.qrc"/>

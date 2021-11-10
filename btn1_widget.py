@@ -12,15 +12,24 @@ class Ui_btn1_widget(widget1_class, QtWidgets.QWidget):
             user_data = json.load(f)
 
         num_sleep = []
+        start_label = "  "
+        end_label = "  "
 
         for day in week:
             try:
                 num_sleep.append(user_data["sleep_time"][str(id)][str(day.month)][str(day.day)])
+                start_label += "{:^5}  ".format(user_data["sleep_time"][str(id)][str(day.month)][str(day.day)]["start"])
+                end_label += "{:^5}  ".format(user_data["sleep_time"][str(id)][str(day.month)][str(day.day)]["end"])
             except:
                 num_sleep.append({"start" : "18:0", "end" : "18:0"})
+                start_label += "       "
+                end_label += "       "
             date += "{:^5}  ".format(str(day.month)+ '.' + str(day.day))
 
+
         date = date[:-2]
+        self.sleep_start_label.setText(start_label)
+        self.sleep_end_label.setText(end_label)
         self.sleep_range.setText(date)
         self.active_range.setText(date)
 
