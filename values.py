@@ -65,7 +65,7 @@ recent_sooni_talk = {}
 recent_sooni_program_day = {}
 recent_sooni_program_name = {}
 
-# if eating snack over 9, value is 1
+# if eating snack over 9, value downs
 eating_snack = {}
 
 # eating pill days are not overlapped
