@@ -162,9 +162,8 @@ while k < len(file):
             date_out_start = datetime.strptime(line[1][1:], "%Y-%m-%d %H:%M:%S")
         elif line[4] == "귀가하기":
             date_out_end = datetime.strptime(line[1][1:], "%Y-%m-%d %H:%M:%S")
-            deltatime = (date_out_end - date_out_start).seconds/60
+            deltatime = (date_out_end - date_out_start).seconds / 60
             out_time[file[k]]["8"][date_out_start.day] += deltatime
-
 
         # calculation activition score
         if line[2] == "매우 활동":
@@ -211,11 +210,11 @@ while k < len(file):
 
         if (line[7] != "") and (line[7] != "프로그램 메시지") and (line[7] != "Message_1"):
             recent_sooni_talk[file[k]] = line[7]
-        
-        if (line[3] == "Act"):
+
+        if line[3] == "Act":
             recent_sooni_program[file[k]] = ""
-        
-        if (line[3] == "프로그램 참여"):
+
+        if line[3] == "프로그램 참여":
             recent_sooni_program[file[k]] = line[1]
 
         # medicine (pill) time check
@@ -304,7 +303,7 @@ while k < len(file):
         )  # this person eating snack at meal so much.
     else:
         eating_snack[file[k]] = int(0)
-    
+
     pill_day[file[k]] = local_pill_day
 
     # plus file indexdd
@@ -431,7 +430,8 @@ user_data = {
     "age": age,
     "eating_snack": eating_snack,
     "living_score": living_score,
-    "pill_day": pill_day
+    "pill_day": pill_day,
+}
 
 with open("data/user_data.json", "w") as f:
     json.dump(user_data, f)
