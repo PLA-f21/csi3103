@@ -371,28 +371,32 @@ p, li { white-space: pre-wrap; }
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">
-font: 12pt &quot;마루 부리 Beta&quot;;</string>
+    <string notr="true">font: 10pt &quot;Fira Code Light&quot;;</string>
    </property>
    <property name="text">
     <string/>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
    </property>
   </widget>
   <widget class="QLabel" name="active_range">
    <property name="geometry">
     <rect>
-     <x>518</x>
+     <x>520</x>
      <y>200</y>
      <width>391</width>
      <height>20</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">
-font: 12pt &quot;마루 부리 Beta&quot;;</string>
+    <string notr="true">font: 10pt &quot;Fira Code Light&quot;;</string>
    </property>
    <property name="text">
     <string/>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
    </property>
   </widget>
   <zorder>box1</zorder>
