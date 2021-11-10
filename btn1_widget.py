@@ -20,9 +20,9 @@ class Ui_btn1_widget(widget1_class, QtWidgets.QWidget):
         with open("data/user_data.json") as f:
             user_data = json.load(f)
 
-            for col in range(7):
-                day = str(weak[col].day)
-                eat_time = user_data["eat_time"][id]["8"][day]
-                self.eat_table.item(0, col).setText(eat_time["breakfast"])
-                self.eat_table.item(1, col).setText(eat_time["lunch"])
-                self.eat_table.item(2, col).setText(eat_time["dinner"])
+        for col in range(7):
+            day = str(weak[col].day)
+            eat_time = user_data["eat_time"][id]["8"][day]
+            self.eat_table.item(0, col).setText(eat_time["breakfast"])
+            self.eat_table.item(1, col).setText(eat_time["lunch"])
+            self.eat_table.item(2, col).setText(eat_time["dinner"])
