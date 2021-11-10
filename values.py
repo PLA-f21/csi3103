@@ -62,6 +62,14 @@ for f in file:
 # initial calculation
 outing_density = {}
 
+# Out time dict
+# user_data["out_time"][id][month][day]
+out_time = {}
+for f in file:
+    out_time[f] = {"8": {}}
+    for d in range(1, 32):
+        out_time[f]["8"][d] = 0
+
 # under these are density
 place_toilet = {}
 place_kitchen = {}
@@ -70,6 +78,7 @@ activation_score = {}
 
 # sooni's talk
 recent_sooni_talk = {}
+recent_sooni_program = {}
 
 # if eating snack over 9, value is 1
 eating_snack = {}
@@ -78,6 +87,7 @@ eating_snack = {}
 # plus, if want to display the time, we should ""recent 3 days""!!
 pill_time = {}
 # display the unbalance time. if this is empty, not eating pill or eating well
+pill_day = {}
 
 living_score = {}
 # In[7]:
@@ -100,6 +110,7 @@ while k < len(file):
 
     i = 2  # pill time index
     local_pill = []
+    local_pill_day = []
     local_pill_unbalance = ""
     local_pill_flag = False
 
@@ -147,6 +158,14 @@ while k < len(file):
         if line[2] == "외출":  # calculation outing density
             local_outing += 1
 
+        if line[4] == "외출하기":
+            date_out_start = datetime.strptime(line[1][1:], "%Y-%m-%d %H:%M:%S")
+        elif line[4] == "귀가하기":
+            date_out_end = datetime.strptime(line[1][1:], "%Y-%m-%d %H:%M:%S")
+            deltatime = (date_out_end - date_out_start).seconds/60
+            out_time[file[k]]["8"][date_out_start.day] += deltatime
+
+
         # calculation activition score
         if line[2] == "매우 활동":
             local_activation_score += 2.0
@@ -192,10 +211,17 @@ while k < len(file):
 
         if (line[7] != "") and (line[7] != "프로그램 메시지") and (line[7] != "Message_1"):
             recent_sooni_talk[file[k]] = line[7]
+        
+        if (line[3] == "Act"):
+            recent_sooni_program[file[k]] = ""
+        
+        if (line[3] == "프로그램 참여"):
+            recent_sooni_program[file[k]] = line[1]
 
         # medicine (pill) time check
         if line[2] == "약":
             local_pill.append(line[1])
+            local_pill_day.append(line[1][9:11])
 
         # if 3 days continuous time delay above 2 hours, pill flag is true (bad behavior)
         while i < len(local_pill):
@@ -278,6 +304,8 @@ while k < len(file):
         )  # this person eating snack at meal so much.
     else:
         eating_snack[file[k]] = int(0)
+    
+    pill_day[file[k]] = local_pill_day
 
     # plus file indexdd
     k += 1
@@ -390,6 +418,7 @@ for id in file:
 user_data = {
     "sleep_time": sleep_time,
     "eat_time": eat_time,
+    "out_time": out_time,
     "outing_density": outing_density,
     "activation_score": activation_score,
     "place_toilet": place_toilet,
@@ -402,7 +431,7 @@ user_data = {
     "age": age,
     "eating_snack": eating_snack,
     "living_score": living_score,
-}
+    "pill_day": pill_day
 
 with open("data/user_data.json", "w") as f:
     json.dump(user_data, f)

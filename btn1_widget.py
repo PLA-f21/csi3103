@@ -15,6 +15,7 @@ class Ui_btn1_widget(widget1_class, QtWidgets.QWidget):
         num_active = []
         start_label = "  "
         end_label = "  "
+        num_out_time = "  "
 
         for day in week:
             try:
@@ -38,10 +39,17 @@ class Ui_btn1_widget(widget1_class, QtWidgets.QWidget):
 
             try:
                 num_active.append(
-                    user_data["out_density"][str(id)][str(day.month)][str(day.day)]
+                    user_data["out_time"][str(id)][str(day.month)][str(day.day)]
                 )
+                if user_data["out_time"][str(id)][str(day.month)][str(day.day)]:
+                    num_out_time += "{:^5}  ".format(
+                        self.cal_min_to_str(user_data["out_time"][str(id)][str(day.month)][str(day.day)])
+                    )
+                else:
+                    num_out_time += "       "
             except:
                 num_active.append(0)
+                num_out_time += "       "
 
             date += "{:^5}  ".format(str(day.month) + "." + str(day.day))
 
@@ -50,6 +58,7 @@ class Ui_btn1_widget(widget1_class, QtWidgets.QWidget):
         self.sleep_end_label.setText(end_label)
         self.sleep_range.setText(date)
         self.active_range.setText(date)
+        self.active_time_label.setText(num_out_time)
 
         self.draw_active(num_active)
         self.draw_sleep(num_sleep)
@@ -80,9 +89,15 @@ class Ui_btn1_widget(widget1_class, QtWidgets.QWidget):
         self.set_deltatime_bar(self.sleep_bar_6, num_sleep[5])
         self.set_deltatime_bar(self.sleep_bar_7, num_sleep[6])
 
+    def cal_min_to_str(self, min):
+        hour = str(int(min/60))
+        min = str(int(min)%60)
+        return str(hour) + ":" + str(min)
+
+
     def set_active_bar(self, widget, num):
-        len = num * 81 / 360
-        ypos = 200 - len
+        len = num * 81 / 720
+        ypos = 160 - len
         widget.setGeometry(widget.pos().x(), ypos, widget.size().width(), len)
 
     def draw_active(self, num_active):
