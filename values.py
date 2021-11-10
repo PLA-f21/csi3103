@@ -211,6 +211,9 @@ while k < len(file):
         if (line[7] != "") and (line[7] != "프로그램 메시지") and (line[7] != "Message_1"):
             recent_sooni_talk[file[k]] = line[7]
         
+        if (line[3] == "Act"):
+            recent_sooni_program[file[k]] = ""
+        
         if (line[3] == "프로그램 참여"):
             recent_sooni_program[file[k]] = line[1]
 
