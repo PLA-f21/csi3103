@@ -432,6 +432,6 @@ user_data = {
     "eating_snack": eating_snack,
     "living_score": living_score,
     "pill_day": pill_day
-
+}
 with open("data/user_data.json", "w") as f:
     json.dump(user_data, f)
