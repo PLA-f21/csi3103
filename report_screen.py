@@ -94,8 +94,8 @@ class report_screen(QtWidgets.QDialog, report_class):
 
     def init_calendar(self):
         cur_time = datetime.datetime.now()
-        self.cur_year = cur_time.year
-        self.cur_month = cur_time.month
+        self.cur_year = 2021
+        self.cur_month = 8
         self.set_calendar()
         self.button_calendar_1_click()
 
