@@ -49,15 +49,15 @@ total_people_num = len(file)
 # user_data["sleep_time"][id][day]["start"] or sleep_time[id][day]["end"]
 sleep_time = {}
 for f in file:
-    sleep_time[f] = {}
+    sleep_time[f] = {"8": {}}
 
 # Eat time dict
 # user_data["eat_time"][id][day]["breakfast"] or ["lunch"] or ["dinner"]
 eat_time = {}
 for f in file:
-    eat_time[f] = {}
+    eat_time[f] = {"8": {}}
     for d in range(1, 32):
-        eat_time[f][d] = {"breakfast": "-", "lunch": "-", "dinner": "-"}
+        eat_time[f]["8"][d] = {"breakfast": "-", "lunch": "-", "dinner": "-"}
 
 # initial calculation
 outing_density = {}
@@ -117,7 +117,7 @@ while k < len(file):
                 day_sleep_start.day == day_sleep_end.day
                 or day_sleep_start.day + 1 == day_sleep_end.day
             ):
-                sleep_time[file[k]][day_sleep_end.day] = {
+                sleep_time[file[k]]["8"][day_sleep_end.day] = {
                     "start": f"{day_sleep_start.hour}:{day_sleep_start.minute:0>2}",
                     "end": f"{day_sleep_end.hour}:{day_sleep_end.minute:0>2}",
                 }
@@ -125,17 +125,17 @@ while k < len(file):
         # Record eat time
         if line[4] == "조식":
             date_eat = datetime.strptime(line[1][1:], "%Y-%m-%d %H:%M:%S")
-            eat_time[file[k]][date_eat.day][
+            eat_time[file[k]]["8"][date_eat.day][
                 "breakfast"
             ] = f"{date_eat.hour}:{date_eat.minute:0>2}"
         elif line[4] == "중식":
             date_eat = datetime.strptime(line[1][1:], "%Y-%m-%d %H:%M:%S")
-            eat_time[file[k]][date_eat.day][
+            eat_time[file[k]]["8"][date_eat.day][
                 "lunch"
             ] = f"{date_eat.hour}:{date_eat.minute:0>2}"
         elif line[4] == "중식":
             date_eat = datetime.strptime(line[1][1:], "%Y-%m-%d %H:%M:%S")
-            eat_time[file[k]][date_eat.day][
+            eat_time[file[k]]["8"][date_eat.day][
                 "dinner"
             ] = f"{date_eat.hour}:{date_eat.minute:0>2}"
         if line[2] == "외출":  # calculation outing density

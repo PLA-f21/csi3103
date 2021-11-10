@@ -10,13 +10,13 @@ with open("data/user_data.json") as f:
     user_data = json.load(f)
   
 # use example
-print(user_data["eat_time"]["490"]["25"]["breakfast"]) # 7:24
+print(user_data["eat_time"]["490"]["8"]["25"]["breakfast"]) # 7:24
 # id 490 ate breakfast at 7:24 on the 25th
 
-print(user_data["eat_time"]["228"]["5"]) # {'breakfast': '-', 'lunch': '-', 'dinner': '-'}
+print(user_data["eat_time"]["228"]["8"]["5"]) # {'breakfast': '-', 'lunch': '-', 'dinner': '-'}
 # id 228 didn't eat anyting(?) on the 5th 
 
-print(user_data["sleep_time"]["490"]["25"]) # {'start': '23:20', 'end': '6:03'}
+print(user_data["sleep_time"]["490"]["8"]["25"]) # {'start': '23:20', 'end': '6:03'}
 # id 490 slept on the 24th 23:20 and woke up on the 25th 6:03 
 ```
 
