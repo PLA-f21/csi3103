@@ -160,7 +160,7 @@ class report_screen(QtWidgets.QDialog, report_class):
 
     def choose_week(self, index):
         # self.calendar_list[index]
-        pass
+        self.btn1_widget.change_week(self.calendar_list[index])
 
     def set_time(self):
         cur_time = datetime.datetime.now()
