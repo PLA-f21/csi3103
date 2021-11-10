@@ -59,7 +59,7 @@
    </property>
    <layout class="QVBoxLayout" name="layout_graph"/>
   </widget>
-  <widget class="QTextBrowser" name="textBrowser">
+  <widget class="QTextBrowser" name="text_browser_main">
    <property name="geometry">
     <rect>
      <x>30</x>
@@ -69,7 +69,8 @@
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">Border:None</string>
+    <string notr="true">Border:None;
+font: 12pt &quot;마루 부리 Beta&quot;;</string>
    </property>
   </widget>
  </widget>

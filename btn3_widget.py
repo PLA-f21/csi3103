@@ -1,6 +1,5 @@
 from PyQt5 import QtCore, QtGui, QtWidgets, uic
 import json
-import datetime
 
 import matplotlib.pyplot
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg
@@ -72,7 +71,6 @@ class Ui_btn3_widget(widget3_class, QtWidgets.QWidget):
             else:
                 msg += "적절한 신체활동은 건강한 신체로! 건강한 정신으로! 힘차게 생활해요!\n\n"
             self.text_browser_main.append(msg)
-
 
 
 
