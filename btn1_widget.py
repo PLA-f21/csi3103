@@ -20,15 +20,15 @@ class Ui_btn1_widget(widget1_class, QtWidgets.QWidget):
         for day in week:
             try:
                 num_sleep.append(
-                    user_data["sleep_time"][str(id)][str(day.month)][str(day.day)]
+                    user_data["sleep_time"][id][str(day.month)][str(day.day)]
                 )
                 start_label += "{:^5}  ".format(
-                    user_data["sleep_time"][str(id)][str(day.month)][str(day.day)][
+                    user_data["sleep_time"][id][str(day.month)][str(day.day)][
                         "start"
                     ]
                 )
                 end_label += "{:^5}  ".format(
-                    user_data["sleep_time"][str(id)][str(day.month)][str(day.day)][
+                    user_data["sleep_time"][id][str(day.month)][str(day.day)][
                         "end"
                     ]
                 )
@@ -39,12 +39,12 @@ class Ui_btn1_widget(widget1_class, QtWidgets.QWidget):
 
             try:
                 num_active.append(
-                    user_data["out_time"][str(id)][str(day.month)][str(day.day)]
+                    user_data["out_time"][id][str(day.month)][str(day.day)]
                 )
-                if user_data["out_time"][str(id)][str(day.month)][str(day.day)]:
+                if user_data["out_time"][id][str(day.month)][str(day.day)]:
                     num_out_time += "{:^5}  ".format(
                         self.cal_min_to_str(
-                            user_data["out_time"][str(id)][str(day.month)][str(day.day)]
+                            user_data["out_time"][id][str(day.month)][str(day.day)]
                         )
                     )
                 else:

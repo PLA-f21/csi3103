@@ -48,6 +48,7 @@ class report_screen(QtWidgets.QDialog, report_class):
         self.set_time()
         self.init_calendar()
         self.set_living_score()
+        self.btn2_widget.init(str(self.ID_num), self.cur_month)
 
     def sec_changed(self):
         self.set_time()
@@ -110,6 +111,7 @@ class report_screen(QtWidgets.QDialog, report_class):
             self.cur_month = 1
             self.cur_year += 1
         self.set_calendar()
+        self.button_calendar_1_click()
 
     def decrease_calendar(self):
         self.month_decrease.setCursor(QtCore.Qt.ClosedHandCursor)
@@ -118,6 +120,7 @@ class report_screen(QtWidgets.QDialog, report_class):
             self.cur_month = 12
             self.cur_year -= 1
         self.set_calendar()
+        self.button_calendar_1_click()
 
     def increase_calendar_release(self):
         self.month_increase.setCursor(QtCore.Qt.OpenHandCursor)
@@ -166,7 +169,8 @@ class report_screen(QtWidgets.QDialog, report_class):
     def choose_week(self, index):
         # self.calendar_list[index]
         self.btn1_widget.set_eating_table(self.calendar_list[index], str(self.ID_num))
-        self.btn1_widget.change_week(self.calendar_list[index], self.ID_num)
+        self.btn1_widget.change_week(self.calendar_list[index], str(self.ID_num))
+        self.btn2_widget.init(str(self.ID_num), self.cur_month)
 
     def set_time(self):
         cur_time = datetime.datetime.now()
