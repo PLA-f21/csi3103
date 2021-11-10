@@ -12,6 +12,7 @@ class Ui_btn1_widget(widget1_class, QtWidgets.QWidget):
             user_data = json.load(f)
 
         num_sleep = []
+        num_active = []
         start_label = "  "
         end_label = "  "
 
@@ -34,6 +35,14 @@ class Ui_btn1_widget(widget1_class, QtWidgets.QWidget):
                 num_sleep.append({"start": "18:0", "end": "18:0"})
                 start_label += "       "
                 end_label += "       "
+
+            try:
+                num_active.append(
+                    user_data["out_density"][str(id)][str(day.month)][str(day.day)]
+                )
+            except:
+                num_active.append(0)
+
             date += "{:^5}  ".format(str(day.month) + "." + str(day.day))
 
         date = date[:-2]
@@ -42,9 +51,10 @@ class Ui_btn1_widget(widget1_class, QtWidgets.QWidget):
         self.sleep_range.setText(date)
         self.active_range.setText(date)
 
+        self.draw_active(num_active)
         self.draw_sleep(num_sleep)
 
-    def set_deltatime(self, widget, dict):
+    def set_deltatime_bar(self, widget, dict):
         map1 = list(map(int, dict["start"].split(":")))
         map2 = list(map(int, dict["end"].split(":")))
 
@@ -62,13 +72,27 @@ class Ui_btn1_widget(widget1_class, QtWidgets.QWidget):
         widget.setGeometry(widget.pos().x(), ypos, widget.size().width(), len)
 
     def draw_sleep(self, num_sleep):
-        self.set_deltatime(self.sleep_bar_1, num_sleep[0])
-        self.set_deltatime(self.sleep_bar_2, num_sleep[1])
-        self.set_deltatime(self.sleep_bar_3, num_sleep[2])
-        self.set_deltatime(self.sleep_bar_4, num_sleep[3])
-        self.set_deltatime(self.sleep_bar_5, num_sleep[4])
-        self.set_deltatime(self.sleep_bar_6, num_sleep[5])
-        self.set_deltatime(self.sleep_bar_7, num_sleep[6])
+        self.set_deltatime_bar(self.sleep_bar_1, num_sleep[0])
+        self.set_deltatime_bar(self.sleep_bar_2, num_sleep[1])
+        self.set_deltatime_bar(self.sleep_bar_3, num_sleep[2])
+        self.set_deltatime_bar(self.sleep_bar_4, num_sleep[3])
+        self.set_deltatime_bar(self.sleep_bar_5, num_sleep[4])
+        self.set_deltatime_bar(self.sleep_bar_6, num_sleep[5])
+        self.set_deltatime_bar(self.sleep_bar_7, num_sleep[6])
+
+    def set_active_bar(self, widget, num):
+        len = num * 81 / 360
+        ypos = 200 - len
+        widget.setGeometry(widget.pos().x(), ypos, widget.size().width(), len)
+
+    def draw_active(self, num_active):
+        self.set_active_bar(self.active_bar_1, num_active[0])
+        self.set_active_bar(self.active_bar_2, num_active[1])
+        self.set_active_bar(self.active_bar_3, num_active[2])
+        self.set_active_bar(self.active_bar_4, num_active[3])
+        self.set_active_bar(self.active_bar_5, num_active[4])
+        self.set_active_bar(self.active_bar_6, num_active[5])
+        self.set_active_bar(self.active_bar_7, num_active[6])
 
 
     def set_eating_table(self, week, id):
