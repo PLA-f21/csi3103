@@ -11,6 +11,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets, uic
 from btn1_widget import Ui_btn1_widget
 from btn2_widget import Ui_btn2_widget
+from btn3_widget import Ui_btn3_widget
 import openpyxl
 import datetime
 import calendar
@@ -44,11 +45,16 @@ class report_screen(QtWidgets.QDialog, report_class):
         self.btn2_widget.setupUi(self.btn2_widget)
         self.btn2_widget.setParent(self.widget2)
 
+        self.btn3_widget = Ui_btn3_widget()
+        self.btn3_widget.setupUi(self.btn3_widget)
+        self.btn3_widget.setParent(self.widget3)
+
         self.btn1_click()
         self.set_time()
         self.init_calendar()
         self.set_living_score()
         self.btn2_widget.init(str(self.ID_num), self.cur_month)
+        self.btn3_widget.init(str(self.ID_num), self.cur_month)
 
     def sec_changed(self):
         self.set_time()

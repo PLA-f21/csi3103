@@ -2,10 +2,10 @@ from PyQt5 import QtCore, QtGui, QtWidgets, uic
 import json
 import datetime
 
-widget1_class = uic.loadUiType("btn2_widget.ui")[0]
+widget2_class = uic.loadUiType("btn2_widget.ui")[0]
 
 
-class Ui_btn2_widget(widget1_class, QtWidgets.QWidget):
+class Ui_btn2_widget(widget2_class, QtWidgets.QWidget):
     def init(self, id, month):
 
         self.main_text_1.clear()
