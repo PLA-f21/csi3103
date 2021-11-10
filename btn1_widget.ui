@@ -1036,7 +1036,7 @@ border-radius: 3px;</string>
    <property name="geometry">
     <rect>
      <x>30</x>
-     <y>70</y>
+     <y>50</y>
      <width>411</width>
      <height>16</height>
     </rect>
@@ -1055,7 +1055,7 @@ border-radius: 3px;</string>
    <property name="geometry">
     <rect>
      <x>15</x>
-     <y>70</y>
+     <y>50</y>
      <width>56</width>
      <height>12</height>
     </rect>
